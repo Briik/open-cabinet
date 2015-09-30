@@ -1,0 +1,62 @@
+DEPENDENCIES
+  amazon
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: amazon
+  apt
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: apt
+  ec2_env
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 6e4ad8361f8a3e70a1d2dd24bbbf3a6bd2560e9f
+    rel: ec2_env
+  https_ssl
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: https_ssl
+  java
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: java
+  newrelic
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: newrelic
+  passenger_nginx
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: passenger_nginx
+  postgresql
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: postgresql
+  saml_certs
+    git: git@github.com:18F/myuscis-common-cookbooks.git
+    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    rel: saml_certs
+
+GRAPH
+  amazon (0.0.1)
+  apt (2.5.3)
+  build-essential (2.2.3)
+  curl (2.0.1)
+  ec2_env (0.0.1)
+  https_ssl (0.0.0)
+    amazon (>= 0.0.0)
+    ec2_env (>= 0.0.0)
+  java (1.28.0)
+  newrelic (2.1.0)
+    curl (>= 0.0.0)
+    python (>= 0.0.0)
+  passenger_nginx (0.0.1)
+  postgresql (0.14.1)
+    apt (>= 1.9.0)
+  python (1.4.6)
+    build-essential (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  saml_certs (0.0.0)
+    amazon (>= 0.0.0)
+  yum (3.6.1)
+  yum-epel (0.6.0)
+    yum (~> 3.0)

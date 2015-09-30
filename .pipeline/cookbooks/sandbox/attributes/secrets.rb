@@ -1,0 +1,13 @@
+default[:myuscis][:app][:secret_key_base] = nil
+default[:myuscis][:app][:basic_auth_username] = nil
+default[:myuscis][:app][:basic_auth_password] = nil
+default[:myuscis][:app][:saml_endpoint_url] = nil
+default[:myuscis][:app][:callback_url] = nil
+default[:myuscis][:app][:portal_endpoint] = nil
+default[:myuscis][:app][:elis_password] = nil
+default[:myuscis][:app][:usps_api_key] = nil
+default[:myuscis][:app][:sales_force_endpoint] = nil
+default[:myuscis][:app][:sales_force_client_id] = nil
+default[:myuscis][:app][:sales_force_client_secret] = nil
+default[:myuscis][:app][:sales_force_user_name] = nil
+default[:myuscis][:app][:sales_force_password] = nil

@@ -1,0 +1,58 @@
+GIT
+  remote: git://github.com/stelligent/serverspec-aws-resources.git
+  revision: a1a65e8bcbfa8e89adc389e3d3d6ebaec3207db8
+  specs:
+    serverspec-aws-resources (0.0.5)
+      aws-sdk (>= 1.61.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aws-sdk (1.64.0)
+      aws-sdk-v1 (= 1.64.0)
+    aws-sdk-v1 (1.64.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+    diff-lcs (1.2.5)
+    json (1.8.1)
+    mini_portile (0.6.2)
+    multi_json (1.11.1)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.2)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
+    rake (10.4.2)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.3)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-its (1.2.0)
+      rspec-core (>= 3.0.0)
+      rspec-expectations (>= 3.0.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
+    serverspec (2.18.0)
+      multi_json
+      rspec (~> 3.0)
+      rspec-its
+      specinfra (~> 2.35)
+    specinfra (2.35.1)
+      net-scp
+      net-ssh
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-sdk (< 2.0.0)
+  rake
+  serverspec
+  serverspec-aws-resources!

@@ -1,0 +1,149 @@
+{
+  "variables": {
+    "app_name": "myuscis-sandbox",
+
+    "hardened_base_ami": "",
+    "app_git_sha":"",
+    "githubpem": "",
+    "new_relic_environment": "",
+
+    "database_username": "",
+    "database_password": "",
+
+    "vpc_id": "",
+    "subnet_id": "",
+
+    "gemfile_source": ""
+  },
+
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-east-1",
+      "source_ami": "{{user `hardened_base_ami`}}",
+      "instance_type": "m4.large",
+      "ssh_username": "ubuntu",
+      "ami_name": "sandbox {{timestamp}}",
+
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "{{ .Vars }} sudo -E  /bin/bash '{{ .Path }}'",
+      "inline": [
+        "#!/bin/bash -e",
+        "sleep 10",
+
+        "apt-get update",
+        "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
+        "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
+        "chmod 600 /root/.ssh/github.pem /root/.ssh/config",
+        "eval `ssh-agent -s`",
+        "ssh-add /root/.ssh/github.pem",
+
+        "mkdir -p /webapps",
+        "git clone -b master git@github.com:18F/{{user `app_name`}}.git /webapps/{{user `app_name`}}",
+        "cd /webapps/{{user `app_name`}}",
+        "git checkout {{user `app_git_sha`}}",
+        "sed -i 's/^source.*$/source \"{{ user `gemfile_source`}}\"/g' Gemfile",
+        "cat Gemfile",
+
+        "if [[ ! -d /userdata ]]; then mkdir /userdata; fi",
+        "chmod ugo+rwx /userdata"
+      ]
+    },
+    {
+      "type": "chef-solo",
+      "execute_command": "sudo -i /bin/bash -c 'eval `ssh-agent -s` ; ssh-add /root/.ssh/github.pem ; chef-solo  -l debug --no-color -c {{.ConfigPath}} -j {{.JsonPath}}'",
+      "cookbook_paths": [
+        ".pipeline/cookbooks-vendor",
+        ".pipeline/cookbooks"
+      ],
+      "skip_install": true,
+      "staging_directory": "/userdata",
+
+      "json": {
+        "java": {
+          "jdk": {
+            "8": {
+              "x86_64": {
+                "url": "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz"
+              }
+            }
+          },
+          "install_flavor" : "oracle",
+          "jdk_version" : "8",
+          "oracle" : {
+            "accept_oracle_download_terms" : true
+          }
+        },
+
+        "postgresql": {
+          "version": "9.4",
+
+          "users": [
+            {
+              "username": "sandbox",
+              "password": "{{user `database_password`}}",
+              "superuser": false,
+              "createdb": true,
+              "login": true
+            }
+          ],
+
+          "databases": [
+            {
+              "name": "sandbox",
+              "owner": "{{user `database_username`}}",
+              "template": "template0",
+              "encoding": "UTF-8",
+              "locale": "en_US.UTF-8"
+            }
+          ]
+        },
+
+        "newrelic": {
+          "license": "aa6e9eae80fbdde154fcc01c95241c60671a7220"
+        },
+
+        "myuscis": {
+          "app" : {
+            "name": "myuscis-sandbox"
+          },
+
+          "new_relic": {
+            "app_name": "Sandbox"
+          },
+
+          "ngnix_passenger": {
+            "app_dir": "/webapps/{{user `app_name`}}/public",
+            "tmp_dir": "/webapps/{{user `app_name`}}/tmp"
+          }
+        }
+      },
+      "run_list":[
+        "chef_handler",
+        "sandbox::profiler",
+        "ec2_env",
+        "apt",
+        "java",
+        "passenger_nginx",
+        "newrelic",
+        "postgresql::server",
+        "sandbox::ocr",
+        "sandbox::default"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "#!/bin/bash -ex",
+        "sudo rm /root/.ssh/github.pem"
+      ]
+    }
+  ]
+}

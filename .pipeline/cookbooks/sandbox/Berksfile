@@ -1,0 +1,8 @@
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'apt'
+cookbook 'postgresql', git: 'git@github.com:phlipper/chef-postgresql.git'
+cookbook 'nginx'
+cookbook 'chef_handler'

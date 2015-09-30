@@ -1,0 +1,9 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sandbox
+  pool: 50
+  username: <%= @db_user %>
+  password: <%= @db_pass %>
+  min_messages: warning
+  host: <%= @db_url %>

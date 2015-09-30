@@ -1,0 +1,24 @@
+source 'https://rubygems.org'
+
+#opendelivery is doodie
+gem 'aws-sdk-core'
+
+raise 'Must set vpc_label environment var' if ENV['vpc_label'].nil?
+source "http://#{ENV['vpc_label']}-nexus.myuscispilot.com/nexus/content/repositories/rubygemshosted/" do
+  gem 'myuscis-common-pipeline'
+end
+
+gem 'opendelivery'
+gem 'trollop'
+gem 'bundler'
+gem 'gibberish'
+gem 'cfndsl'
+gem 'uuidtools'
+gem 'berkshelf'
+
+group :test do
+  gem 'serverspec'
+  gem 'brakeman'
+  gem 'rubycritic'
+  gem 'foodcritic'
+end

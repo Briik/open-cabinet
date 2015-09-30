@@ -1,0 +1,17 @@
+source 'https://supermarket.chef.io'
+
+cookbook 'chef_handler'
+
+#there's not any versioning of these cookbooks for the most part...
+cookbook 'ec2_env', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'ec2_env'
+cookbook 'apt', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'apt'
+cookbook 'java', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'java'
+cookbook 'passenger_nginx', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'passenger_nginx'
+cookbook 'newrelic', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'newrelic'
+cookbook 'https_ssl', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'https_ssl'
+cookbook 'saml_certs', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'saml_certs'
+cookbook 'postgresql', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'postgresql'
+
+#secondary dep, but git resolution apparently not smart enough to find this since no source
+cookbook 'amazon', git: 'git@github.com:18F/myuscis-common-cookbooks.git', rel: 'amazon'
+

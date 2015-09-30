@@ -1,0 +1,76 @@
+---
+driver:
+  name: vagrant
+  synced_folders:
+    - ["../../..", "/webapps/myuscis-sandbox"]
+    - ["~/.ssh", "/root/.ssh", "owner: 'root'"]
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[apt]
+      - recipe[sandbox::_vagrant_setup]
+      - recipe[build-essential]
+      - recipe[java]
+      - recipe[nginx]
+      - recipe[postgresql::server]
+
+      - recipe[sandbox::ocr]
+      - recipe[sandbox::default]
+    attributes:
+      java:
+        install_flavor: oracle
+        jdk_version: 8
+        oracle:
+          accept_oracle_download_terms: true
+        jdk:
+          '8':
+            x86_64:
+              url: 'http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz'
+
+      postgresql:
+        version: '9.4'
+        users:
+          - username: postgres
+            superuser: true
+            createdb: true
+            login: false
+          - username: sandbox
+            encrypted_password: md516992fb0dbd22dc0592c58906df01e82
+            superuser: false
+            createdb: true
+            login: true
+        databases:
+          - name: sandbox
+            owner: sandbox
+            template: template0
+            encoding: 'UTF-8'
+            locale: 'en_US.UTF-8'
+
+      myuscis:
+        app:
+          name: myuscis-sandbox
+
+          callback_url: fakecallback_url
+          basic_auth_username: fakebasic_auth_username
+          basic_auth_password: fakebasic_auth_password
+          redis_cache_endpoint: fakeredis_cache_endpoint
+          secret_key_base: fakesecret_key_base
+          usps_api_key: fakeusps_api_key
+          saml_endpoint_url: fakesaml_endpoint_url
+          portal_endpoint: fakeportal_endpoint
+          elis_password: fakeelis_password
+          pdf_service_rest_host: fakepdf_service_rest_host
+
+          database_host: localhost
+          database_username: postgres
+          database_password: fakepassword
+
+        new_relic:
+          app_name: Sandbox

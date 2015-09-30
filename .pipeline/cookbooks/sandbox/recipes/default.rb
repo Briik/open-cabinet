@@ -1,0 +1,7 @@
+include_recipe 'sandbox::prepare_app_directory'
+include_recipe 'sandbox::newrelic'
+include_recipe 'sandbox::nginx_configuration'
+include_recipe 'sandbox::environment_variables'
+include_recipe 'sandbox::install_dependencies'
+include_recipe 'sandbox::precompile_assets'
+include_recipe 'sandbox::prepare_app_directory'
