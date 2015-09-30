@@ -95,7 +95,7 @@ defineJob("base-${appName}-job-dsl") {
   }
 
   wrappers {
-    rvm("2.2.2@${appName}")
+    rvm("2.2.1@${appName}")
     colorizeOutput('xterm')
   }
 
