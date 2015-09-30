@@ -21,4 +21,5 @@ group :test do
   gem 'brakeman'
   gem 'rubycritic'
   gem 'foodcritic'
+  gem 'rubocop', '0.29.1'
 end
