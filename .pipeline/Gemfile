@@ -4,9 +4,9 @@ source 'https://rubygems.org'
 gem 'aws-sdk-core'
 
 raise 'Must set vpc_label environment var' if ENV['vpc_label'].nil?
-source "http://#{ENV['vpc_label']}-nexus.myuscispilot.com/nexus/content/repositories/rubygemshosted/" do
-  gem 'myuscis-common-pipeline'
-end
+#source "http://#{ENV['vpc_label']}-nexus.myuscispilot.com/nexus/content/repositories/rubygemshosted/" do
+#  gem 'myuscis-common-pipeline'
+#end
 
 gem 'opendelivery'
 gem 'trollop'
