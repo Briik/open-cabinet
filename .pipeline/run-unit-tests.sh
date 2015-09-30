@@ -21,7 +21,7 @@ confirm_env_vars_available 'sdb_domain region pipeline_instance_id'
 bundle install --jobs 4 --retry 10
 
 cp config/secrets.yml.sample config/secrets.yml
-cp config/database.yml.sample config/database.yml
+#cp config/database.yml.sample config/database.yml
 
 bundle exec rake db:migrate:reset RAILS_ENV=test
 bundle exec rake test:unit RAILS_ENV=test
