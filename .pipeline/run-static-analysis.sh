@@ -18,8 +18,8 @@ confirm_env_vars_available 'sdb_domain region pipeline_instance_id'
 
 ####################################
 
-bundle install --jobs 4 \
-               --retry 10
+#bundle install --jobs 4 \
+#               --retry 10
 
 brakeman -o brakeman-output.tabs
 brakemanfile=sandbox-brakeman.tabs
