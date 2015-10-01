@@ -18,7 +18,7 @@ confirm_env_vars_available 'sdb_domain region target_env pipeline_instance_id co
 ####################################
 
 #discover_vpc_configuration
-app-name=open-cabinet-RDS
+app-name="open-cabinet-RDS"
 
 rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --target-env ${target_env} \
@@ -64,14 +64,14 @@ then
       --parameters \
         ParameterKey="DBInstanceIdentifier",ParameterValue="${rds_stack_name}" \
         ParameterKey="DBSnapshotIdentifier",ParameterValue="${forms_db_snapshot_identifier}" \
-        ParameterKey="DBUsername",ParameterValue=db_user \
-        ParameterKey="DBPassword",ParameterValue=db_password \
+        ParameterKey="DBUsername",ParameterValue="db_user" \
+        ParameterKey="DBPassword",ParameterValue="db_password" \
         ParameterKey="DBClass",ParameterValue="${db_instance_size}" \
-        ParameterKey="DBName",ParameterValue=open-cabinet-db \
+        ParameterKey="DBName",ParameterValue="open-cabinet-db" \
         ParameterKey="DBAllocatedStorage",ParameterValue="${database_storage}" \
         ParameterKey="VpcId",ParameterValue=${vpc_id} \
         ParameterKey="DBSubnetGroupID",ParameterValue="${db_subnet_group_id}" \
-        ParameterKey="DBParameterGroupName",${parameter_group_name}
+        ParameterKey="DBParameterGroupName","${parameter_group_name}"
 
   do_retry "monitor_stack --stack ${rds_stack_name} --region ${region}"
 
