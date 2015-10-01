@@ -23,7 +23,7 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --target-env ${target_env} \
                                                   --app-name "open-cabinet-RDS")
 
-rds_stack_name=$(get_inventory_parameter --parameter ${rds_stack_name_inventory_key} --blank-ok)
+rds_stack_name=$(rds_stack_name)
 
 rds_stack_exists=$(is_existing_stack --region ${region} --stackname "${rds_stack_name}")
 
@@ -40,7 +40,9 @@ then
   #database_storage=$(compute_db_allocated_storage formsDbStorage ${open-cabinet_db_snapshot_identifier})
   database_storage=5
 
-  db_subnet_group_id=$(get_inventory_parameter --parameter ${vpc_id}_db_subnet_group)
+  #db_subnet_group_id=$(get_inventory_parameter --parameter ${vpc_id}_db_subnet_group)
+  db_subnet_group_id"=subnet-059a8d72"
+  
   echo "Using DB Subnet Group: '${db_subnet_group_id}'"
 
   #db_instance_size=$(get_pipeline_property --key dbInstanceSize)
@@ -49,7 +51,7 @@ then
 
   #parameter_group_name=$(get_inventory_parameter --parameter rds_parameter_group_name_postgres_9_4 --blank-ok)
   #parameter_group_name="${parameter_group_name:-default.postgres9.4}"
-  parameter_group_name=default.postgres9.4
+  parameter_group_name="default.postgres9.4"
 
   cfndsl .pipeline/config/rds-cfndsl.rb > .pipeline/config/rds.json
 
