@@ -18,13 +18,39 @@ confirm_env_vars_available 'sdb_domain region pipeline_instance_id'
 
 ####################################
 
+function create_secrets {
+  set +x
+  cat <<SECRETS > secret.values
+default: &default
+  secret_key_base: d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
+  DATABASE_IP: $(get_db_hostname --region ${region} --stackname $(get_pipeline_property --key forms_rds_stack_name))
+  DATABASE_USERNAME: dev_db_user
+  DATABASE_PASSWORD: super_user
+  BASIC_AUTH_USERNAME: user
+  BASIC_AUTH_PASSWORD: password
+  open_fda_import_key: tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef
+
+development: *default
+SECRETS
+  set -x
+
+  render_template --template-path '.pipeline/config/secrets.yml.erb' \
+                  --output-path 'config/secrets.yml' \
+                  --values-path secret.values
+
+  rm secret.values
+}
+
 bundle install --jobs 4 --retry 10
 
-cp config/secrets.yml.sample config/secrets.yml
-#cp config/database.yml.sample config/database.yml
+cp config/environments/development.rb.sample config/environments/development.rb
+verify-or-create-database.sh
+create_secrets
+
 
 #bundle exec rake db:migrate:reset RAILS_ENV=test
 #bundle exec rake test:unit RAILS_ENV=test
+bundle exec rake db:migrate
 bundle exec rspec
 
 set_pipeline_property --key furthest_pipeline_stage_completed \
