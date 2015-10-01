@@ -43,7 +43,7 @@ SECRETS
 
 bundle install --jobs 4 --retry 10
 
-export target-env="development"
+export target_env=development
 
 cp config/environments/development.rb.sample config/environments/development.rb
 $(dirname $0)/verify-or-create-database.sh
