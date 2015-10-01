@@ -18,11 +18,10 @@ confirm_env_vars_available 'sdb_domain region target_env pipeline_instance_id co
 ####################################
 
 #discover_vpc_configuration
-app-name="open-cabinet-RDS"
 
 rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --target-env ${target_env} \
-                                                  --app-name ${app-name})
+                                                  --app-name "open-cabinet-RDS")
 
 rds_stack_name=$(get_inventory_parameter --parameter ${rds_stack_name_inventory_key} --blank-ok)
 
@@ -35,7 +34,7 @@ if [[ ${rds_stack_exists} == false ]] || [[ -n "${open-cabinet_db_snapshot_ident
 then
   rds_stack_name=$(compute_stack_name --vpc-label ${vpc_label} \
                                       --target-env ${target_env} \
-                                      --app-name ${app-name} \
+                                      --app-name "open-cabinet-RDS" \
                                       --suffix $(generate_timestamp))
 
   #database_storage=$(compute_db_allocated_storage formsDbStorage ${open-cabinet_db_snapshot_identifier})
