@@ -14,7 +14,7 @@ gem install myuscis-common-pipeline-0.0.30.gem
 
 source $(gem contents myuscis-common-pipeline | grep common-bash-functions)
 
-confirm_env_vars_available 'sdb_domain region pipeline_instance_id'
+#confirm_env_vars_available 'sdb_domain region pipeline_instance_id'
 
 ####################################
 
