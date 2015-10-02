@@ -24,6 +24,7 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --app-name "open-cabinet-RDS")
 
 rds_stack_name="${rds_stack_name}"
+dbname="opencabinetdb"
 
 rds_stack_exists=$(is_existing_stack --region ${region} --stackname "${rds_stack_name}")
 
@@ -70,7 +71,7 @@ then
         ParameterKey="DBUsername",ParameterValue="dbuser" \
         ParameterKey="DBPassword",ParameterValue="dbpassword" \
         ParameterKey="DBClass",ParameterValue="${db_instance_size}" \
-        ParameterKey="DBName",ParameterValue="opencabinetdb" \
+        ParameterKey="DBName",ParameterValue="${dbname}" \
         ParameterKey="DBAllocatedStorage",ParameterValue="${database_storage}" \
         ParameterKey="VpcId",ParameterValue=${vpc} \
         ParameterKey="DBSubnetGroupID",ParameterValue="${db_subnet_group_id}" \
@@ -80,7 +81,7 @@ then
 
   source_db_instance_id=$(get_stack_resource_id --region ${region} \
                                                 --stackname ${rds_stack_name} \
-                                                --resourcename open-cabinet-db)
+                                                --resourcename ${dbname})
 
   echo "RDS Stack=${rds_stack_name}, db instance id = ${source_db_instance_id}"
 
