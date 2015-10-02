@@ -41,13 +41,14 @@ then
   database_storage=5
 
   #db_subnet_group_id=$(get_inventory_parameter --parameter ${vpc_id}_db_subnet_group)
-  db_subnet_group_id"=subnet-059a8d72"
+  # create a subnet group if none exists
+  db_subnet_group_id="devopsbootcamp-dbsubnetgroup-1sdsnjfve7vc"
   
   echo "Using DB Subnet Group: '${db_subnet_group_id}'"
 
   #db_instance_size=$(get_pipeline_property --key dbInstanceSize)
   #db_instance_size=${db_instance_size:-db.m3.medium}
-  db_instance_size=db.m3.medium
+  db_instance_size="db.m3.medium"
 
   #parameter_group_name=$(get_inventory_parameter --parameter rds_parameter_group_name_postgres_9_4 --blank-ok)
   #parameter_group_name="${parameter_group_name:-default.postgres9.4}"
@@ -64,7 +65,7 @@ then
       --capabilities CAPABILITY_IAM \
       --parameters \
         ParameterKey="DBInstanceIdentifier",ParameterValue="${rds_stack_name}" \
-        ParameterKey="DBSnapshotIdentifier",ParameterValue="${forms_db_snapshot_identifier}" \
+        ParameterKey="DBSnapshotIdentifier",ParameterValue="${open_cabinet_db_snapshot_identifier}" \
         ParameterKey="DBUsername",ParameterValue="db_user" \
         ParameterKey="DBPassword",ParameterValue="db_password" \
         ParameterKey="DBClass",ParameterValue="${db_instance_size}" \
