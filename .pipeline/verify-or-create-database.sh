@@ -24,6 +24,10 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --app-name "open-cabinet-RDS")
 
 rds_stack_name="${rds_stack_name}"
+
+set_inventory_parameter --parameter ${rds_stack_name_inventory_key} \
+                          --value ${rds_stack_name}
+
 dbname="OpenCabinetDB"
 
 rds_stack_exists=$(is_existing_stack --region ${region} --stackname "${rds_stack_name}")
