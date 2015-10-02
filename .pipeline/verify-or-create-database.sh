@@ -25,6 +25,7 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
 
 rds_stack_name="${rds_stack_name}"
 
+rds_stack_name="JenkinsParamDB-JenkinsParametersStore-19ZY0PKQU6FI1"
 set_inventory_parameter --parameter ${rds_stack_name_inventory_key} \
                           --value "BootCamp-development-open-cabinet-RDS-20151002190654"
 
@@ -94,6 +95,8 @@ then
 
   set_inventory_parameter --parameter ${rds_stack_name_inventory_key} \
                           --value ${rds_stack_name}
+
+  export rds_stack_name=${rds_stack_name}
 
 else
   echo "Permanent RDS, ${rds_stack_name}, already exists for ${target_env}"
