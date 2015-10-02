@@ -28,9 +28,9 @@ rds_stack_name="${rds_stack_name}"
 rds_stack_exists=$(is_existing_stack --region ${region} --stackname "${rds_stack_name}")
 
 #can come from the acceptance-tested-trigger.sh script....
-open-cabinet_db_snapshot_identifier="$(get_pipeline_property --key openCabinetDbSnapshotIdentifier)"
+open_cabinet_db_snapshot_identifier=""
 
-if [[ ${rds_stack_exists} == false ]] || [[ -n "${open-cabinet_db_snapshot_identifier}" ]] ;
+if [[ ${rds_stack_exists} == false ]] || [[ -n "${open_cabinet_db_snapshot_identifier}" ]] ;
 then
   rds_stack_name=$(compute_stack_name --vpc-label ${vpc_label} \
                                       --target-env ${target_env} \
