@@ -93,7 +93,7 @@ CloudFormation {
             MasterUsername Ref('DBUsername')
             MasterUserPassword Ref('DBPassword')
             DBSubnetGroupName Ref('DBSubnetGroupID')
-            VPCSecurityGroups [ Ref('FormsSecurityGroup') ]
+            VPCSecurityGroups [ Ref('OpenCabinetRDSSecurityGroup') ]
             DBParameterGroupName Ref('DBParameterGroupName')
             Property 'StorageEncrypted', true
             Tags [      
