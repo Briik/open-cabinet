@@ -73,7 +73,7 @@ then
         ParameterKey="DBAllocatedStorage",ParameterValue="${database_storage}" \
         ParameterKey="VpcId",ParameterValue=${vpc_id} \
         ParameterKey="DBSubnetGroupID",ParameterValue="${db_subnet_group_id}" \
-        ParameterKey="DBParameterGroupName","${parameter_group_name}"
+        ParameterKey="DBParameterGroupName",ParameterValue="${parameter_group_name}"
 
   do_retry "monitor_stack --stack ${rds_stack_name} --region ${region}"
 
