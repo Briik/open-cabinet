@@ -66,8 +66,8 @@ then
       --parameters \
         ParameterKey="DBInstanceIdentifier",ParameterValue="${rds_stack_name}" \
         ParameterKey="DBSnapshotIdentifier",ParameterValue="${open_cabinet_db_snapshot_identifier}" \
-        ParameterKey="DBUsername",ParameterValue="db_user" \
-        ParameterKey="DBPassword",ParameterValue="db_password" \
+        ParameterKey="DBUsername",ParameterValue="dbuser" \
+        ParameterKey="DBPassword",ParameterValue="dbpassword" \
         ParameterKey="DBClass",ParameterValue="${db_instance_size}" \
         ParameterKey="DBName",ParameterValue="open-cabinet-db" \
         ParameterKey="DBAllocatedStorage",ParameterValue="${database_storage}" \
