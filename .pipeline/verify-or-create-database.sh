@@ -70,7 +70,7 @@ then
         ParameterKey="DBUsername",ParameterValue="dbuser" \
         ParameterKey="DBPassword",ParameterValue="dbpassword" \
         ParameterKey="DBClass",ParameterValue="${db_instance_size}" \
-        ParameterKey="DBName",ParameterValue="open-cabinet-db" \
+        ParameterKey="DBName",ParameterValue="opencabinetdb" \
         ParameterKey="DBAllocatedStorage",ParameterValue="${database_storage}" \
         ParameterKey="VpcId",ParameterValue=${vpc} \
         ParameterKey="DBSubnetGroupID",ParameterValue="${db_subnet_group_id}" \
