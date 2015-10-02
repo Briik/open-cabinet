@@ -24,14 +24,10 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --app-name "open-cabinet-RDS")
 
 
-rds_stack_name="bootcamp-development-open-cabinet-rds-20151002190654"
-set_inventory_parameter --table_name "JenkinsParamDB-JenkinsParametersStore-19ZY0PKQU6FI1" \
-                        --parameter ${rds_stack_name_inventory_key} \
+set_inventory_parameter --parameter ${rds_stack_name_inventory_key} \
                         --value "BootCamp-development-open-cabinet-RDS-20151002190654"
 
 rds_stack_name="$(get_inventory_parameter --parameter ${rds_stack_name_inventory_key})"
-
-rds_stack_name="${rds_stack_name}"
 
 dbname="OpenCabinetDB"
 
