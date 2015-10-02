@@ -36,7 +36,8 @@ then
                                       --target-env ${target_env} \
                                       --app-name "open-cabinet-RDS" \
                                       --suffix $(generate_timestamp))
-
+  echo "VPC Id: '${vpc}'"
+  echo "RDS stack name: '${rds_stack_name}'"
   #database_storage=$(compute_db_allocated_storage formsDbStorage ${open-cabinet_db_snapshot_identifier})
   database_storage=5
 
@@ -71,7 +72,7 @@ then
         ParameterKey="DBClass",ParameterValue="${db_instance_size}" \
         ParameterKey="DBName",ParameterValue="open-cabinet-db" \
         ParameterKey="DBAllocatedStorage",ParameterValue="${database_storage}" \
-        ParameterKey="VpcId",ParameterValue=${vpc_id} \
+        ParameterKey="VpcId",ParameterValue=${vpc} \
         ParameterKey="DBSubnetGroupID",ParameterValue="${db_subnet_group_id}" \
         ParameterKey="DBParameterGroupName",ParameterValue="${parameter_group_name}"
 
