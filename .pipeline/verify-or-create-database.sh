@@ -26,7 +26,7 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
 rds_stack_name="${rds_stack_name}"
 
 set_inventory_parameter --parameter ${rds_stack_name_inventory_key} \
-                          --value ${rds_stack_name}
+                          --value "BootCamp-development-open-cabinet-RDS-20151002190654"
 
 dbname="OpenCabinetDB"
 
