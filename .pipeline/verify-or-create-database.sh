@@ -28,7 +28,7 @@ rds_stack_name="${rds_stack_name}"
 rds_stack_exists=$(is_existing_stack --region ${region} --stackname "${rds_stack_name}")
 
 #can come from the acceptance-tested-trigger.sh script....
-open_cabinet_db_snapshot_identifier=""
+open_cabinet_db_snapshot_identifier="" #set to empty string to create new database
 
 if [[ ${rds_stack_exists} == false ]] || [[ -n "${open_cabinet_db_snapshot_identifier}" ]] ;
 then
@@ -41,8 +41,8 @@ then
   database_storage=5
 
   #db_subnet_group_id=$(get_inventory_parameter --parameter ${vpc_id}_db_subnet_group)
-  # create a subnet group if none exists
-  db_subnet_group_id="devopsbootcamp-dbsubnetgroup-1sdsnjfve7vc"
+  # reference subnet created with VPC - FIGURE OUT A WAY TO PULL THIS INSTEAD OF HARDCODING
+  db_subnet_group_id="devopsbootcamp-dbsubnetgroup-1sdsnjfve7vc" 
   
   echo "Using DB Subnet Group: '${db_subnet_group_id}'"
 

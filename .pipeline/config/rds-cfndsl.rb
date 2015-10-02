@@ -1,5 +1,5 @@
 CloudFormation {
-	Description 'Creates an RDS DBInstance for Interactive Forms in an existing Virtual Private Cloud (VPC).'
+	Description 'Creates an RDS DBInstance for Open-Cabinet in an existing Virtual Private Cloud (VPC).'
     
     Parameter('VpcId') {
         String
@@ -70,7 +70,7 @@ CloudFormation {
         Default 'default.postgres9.4'
     }
    
-	EC2_SecurityGroup('FormsSecurityGroup') {
+	EC2_SecurityGroup('OpenCabinetRDSSecurityGroup') {
 	  GroupDescription 'RDS DB Instance access'
 	  VpcId Ref('VpcId')
 
@@ -82,7 +82,7 @@ CloudFormation {
 	  }
 	}
 
-   RDS_DBInstance('FormsDB') {
+   RDS_DBInstance('OpenCabinetDB') {
             DBInstanceIdentifier Ref('DBInstanceIdentifier')
             DBSnapshotIdentifier Ref('DBSnapshotIdentifier')
             DBName Ref('DBName')
