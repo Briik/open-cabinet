@@ -22,7 +22,7 @@ function create_secrets {
   set +x
   cat <<SECRETS > secret.values
   environment: default
-  secret_key_base: d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
+  secret_key_base: b46c819adc1362197155e3f07d3c68edaaa4bd43910e42e16a035e34d7b3e41e324c3a4e753935d9b0377ac4672178b2e26365e6a8e337beae2ee2bba671795c
   db_host: $(get_db_hostname --region ${region} --stackname $(get_pipeline_property --key open_cabinet_rds_stack_name))
   db_un: dbuser
   db_pw: dbpassword
