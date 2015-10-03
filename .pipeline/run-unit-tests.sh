@@ -22,7 +22,7 @@ function create_secrets {
   set +x
   stackname=$(get_pipeline_property --key open_cabinet_rds_stack_name)
   echo ${stackname}
-  hostname=$(get_db_hostname --region ${region})
+  hostname=$(get_db_hostname --region ${region} --stackname ${stackname})
   echo ${hostname}
   cat <<SECRETS > secret.values
   environment: default
