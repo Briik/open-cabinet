@@ -23,10 +23,6 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --target-env ${target_env} \
                                                   --app-name "open-cabinet-RDS")
 
-
-set_inventory_parameter --parameter ${rds_stack_name_inventory_key} \
-                        --value "BootCamp-development-open-cabinet-RDS-20151002190654"
-
 rds_stack_name="$(get_inventory_parameter --parameter ${rds_stack_name_inventory_key})"
 
 dbname="OpenCabinetDB"
@@ -100,5 +96,5 @@ else
   echo "Permanent RDS, ${rds_stack_name}, already exists for ${target_env}"
 fi
 
-set_pipeline_property --key forms_rds_stack_name \
+set_pipeline_property --key open_cabinet_rds_stack_name \
                       --value ${rds_stack_name}
