@@ -20,17 +20,18 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: <%= Rails.application.secrets[:DATABASE_USERNAME] %>
-  password: <%= Rails.application.secrets[:DATABASE_PASSWORD] %>
-  host: <%= Rails.application.secrets[:DATABASE_IP] %>
+  #username: <%= Rails.application.secrets[:DATABASE_USERNAME] %>
+  username: dbuser
+  #password: <%= Rails.application.secrets[:DATABASE_PASSWORD] %>
+  password: dbpassword
+  #host: <%= Rails.application.secrets[:DATABASE_IP] %>
+  host: bootcamp-development-open-cabinet-rds-20151002190654.cmfxlh1devrl.us-east-1.rds.amazonaws.com
+  database: OpenCabinetDB
   port: 5432
 
 development:
   <<: *default
-  database: OpenCabinetDB
-  username: <%= Rails.application.secrets[:DATABASE_USERNAME] %>
-  password: <$= Rails.application.secrets[:DATABASE_PASSWORD] %>
-  host: <%= Rails.application.secrets[:DATABASE_IP] %>
+  database: open_cabinet_dev
   <% if ENV['DOCKER'] == 'true' %>
   username: postgres
   password:
