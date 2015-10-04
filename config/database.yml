@@ -27,7 +27,10 @@ default: &default
 
 development:
   <<: *default
-  database: open_cabinet_dev
+  database: OpenCabinetDB
+  username: <%= Rails.application.secrets[:DATABASE_USERNAME] %>
+  password: <$= Rails.application.secrets[:DATABASE_PASSWORD] %>
+  host: <%= Rails.application.secrets[:DATABASE_IP] %>
   <% if ENV['DOCKER'] == 'true' %>
   username: postgres
   password:
