@@ -42,7 +42,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.secret_key_base = ENV["SECRET_KEY_BASE"]
+  config.secret_key_base = ENV["SECRET_KEY_BASE"] || Rails.application.secrets[:SECRET_KEY_BASE]
   config.basic_auth_user = ENV['BASIC_AUTH_USERNAME'] || Rails.application.secrets[:BASIC_AUTH_USERNAME]
   config.basic_auth_pass = ENV['BASIC_AUTH_PASSWORD'] || Rails.application.secrets[:BASIC_AUTH_PASSWORD]
 end
