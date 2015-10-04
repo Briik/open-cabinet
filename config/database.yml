@@ -70,7 +70,7 @@ development:
 # Do not set this db to the same as development or production.
 test: &test
   <<: *default
-  database: open_cabinet_test
+  database: OpenCabinetDB
   <% if ENV['DOCKER'] == 'true' %>
   username: postgres
   password:
