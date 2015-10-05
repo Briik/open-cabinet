@@ -21,9 +21,7 @@ confirm_env_vars_available 'sdb_domain region pipeline_instance_id'
 function create_secrets {
   set +x
   stackname=$(get_pipeline_property --key open_cabinet_rds_stack_name)
-  echo ${stackname}
   hostname=$(get_db_hostname --region ${region} --stackname ${stackname})
-  echo ${hostname}
   cat <<SECRETS > secret.values
   secret_key_base: ${secret_key_base}
   db_host: $(get_db_hostname --region ${region} --stackname $(get_pipeline_property --key open_cabinet_rds_stack_name))
