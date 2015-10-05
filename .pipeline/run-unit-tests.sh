@@ -48,7 +48,7 @@ export target_env=development
 secret_key_base=d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
 set_inventory_parameter --parameter secret_key_base \
                           --value ${secret_key_base}
-export secret_key_base={$secret_key_base}
+export secret_key_base=${secret_key_base}
 
 cp config/environments/development.rb.sample config/environments/development.rb
 $(dirname $0)/verify-or-create-database.sh
