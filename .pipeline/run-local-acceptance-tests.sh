@@ -34,6 +34,9 @@ bundle update --jobs 4 --retry 10
 
 prepare_test_result_dir
 
+export secret_key_base=$(get_inventory_parameter --parameter secret_key_base)
+echo ${secret_key_base}
+
 run_local_acceptance_tests
 
 set_pipeline_property --key furthest_pipeline_stage_completed \
