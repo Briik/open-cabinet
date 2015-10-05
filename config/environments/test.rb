@@ -45,7 +45,7 @@ Rails.application.configure do
   # for some reason, not working
   #config.secret_key_base = ENV["SECRET_KEY_BASE"] || Rails.application.secrets[:SECRET_KEY_BASE]
   config.open_fda_import_key = Rails.application.secrets[:open_fda_import_key]
-  config.secret_key_base = Rails.application.secrets[:secret_key_base]
+  config.secret_key_base = Rails.application.secrets[:secret_key_base] || ENV["secret_key_base"]
   config.basic_auth_user = ENV['BASIC_AUTH_USERNAME'] || Rails.application.secrets[:BASIC_AUTH_USERNAME]
   config.basic_auth_pass = ENV['BASIC_AUTH_PASSWORD'] || Rails.application.secrets[:BASIC_AUTH_PASSWORD]
 end
