@@ -59,6 +59,7 @@ create_secrets
 #bundle exec rake test:unit RAILS_ENV=test
 
 bundle exec rake db:create
+bundle exec rake db:reset
 bundle exec rake db:migrate
 bundle exec rake db:migrate RAILS_ENV=test
 bundle exec rspec
