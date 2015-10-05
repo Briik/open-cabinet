@@ -177,7 +177,7 @@ defineJob(fullJobName('run-unit-tests')) {
   publishers {
     configure { job ->
       job / 'publishers' / 'hudson.plugins.rubyMetrics.rcov.RcovPublisher' {
-        reportDir 'coverage/rcov'
+        reportDir 'coverage'
         targets {
           'hudson.plugins.rubyMetrics.rcov.model.MetricTarget' {
             metric 'TOTAL_COVERAGE'
