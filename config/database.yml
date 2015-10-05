@@ -84,11 +84,11 @@ travis:
 
 acceptance:
   <<: *default
+  database: open_cabinet_acceptance
   <% if ENV['DOCKER'] == 'true' %>
   username: postgres
   password:
   host: db
-  database: open_cabinet_acceptance
   <% end %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
