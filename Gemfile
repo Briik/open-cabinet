@@ -84,7 +84,7 @@ end
 group :acceptance, :test, :travis do
   gem 'sauce'
   gem 'sauce_connect'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.14.0'
   gem 'activerecord-nulldb-adapter'
   gem 'simplecov', :require => false
   gem "codeclimate-test-reporter", group: :test, require: nil
