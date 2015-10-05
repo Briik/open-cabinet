@@ -32,7 +32,7 @@ function create_secrets {
   un: user
   pw: password
   import_key: tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef
- SECRETS
+SECRETS
   set -x
 
   render_template --template-path '.pipeline/config/secrets.yml.erb' \
