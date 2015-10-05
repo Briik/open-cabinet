@@ -35,6 +35,8 @@ function create_secrets {
   import_key: tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef
 
 development: *default
+
+test: *default
 SECRETS
   set -x
 
