@@ -36,7 +36,11 @@ function create_secrets {
 
 development: *default
 
-test: *default
+test: 
+<<: *default
+secret_key_base: 3d751048e11e464bcf275196fe36d1184fe40a43d55723646a7191a0ea9349db6f6d01f0a9757c919812d5cae366e84f82eb13eb050f658b2a79014f5f0c7ea3
+
+acceptance: *default
 SECRETS
   set -x
 
