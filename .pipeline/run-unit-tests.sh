@@ -26,7 +26,7 @@ function create_secrets {
   echo ${hostname}
   cat <<SECRETS > secret.values
   environment: default
-  secret_key_base: d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
+  secret_key_base: 32d9c5336543e8385f786935eb366baa6ae0a07fedec331423fde52d071943bf69394f89188968c34025f1414d7fbbee67798eba04e75f6c4012b15a7bd18d35
   db_host: $(get_db_hostname --region ${region} --stackname $(get_pipeline_property --key open_cabinet_rds_stack_name))
   db_un: dbuser
   db_pw: dbpassword
@@ -38,7 +38,7 @@ development: *default
 
 test: 
 <<: *default
-secret_key_base: 3d751048e11e464bcf275196fe36d1184fe40a43d55723646a7191a0ea9349db6f6d01f0a9757c919812d5cae366e84f82eb13eb050f658b2a79014f5f0c7ea3
+secret_key_base: 32d9c5336543e8385f786935eb366baa6ae0a07fedec331423fde52d071943bf69394f89188968c34025f1414d7fbbee67798eba04e75f6c4012b15a7bd18d35
 
 acceptance: *default
 SECRETS
