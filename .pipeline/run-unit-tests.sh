@@ -38,7 +38,7 @@ development: *default
 
 test: 
 <<: *default
-secret_key_base: 3d751048e11e464bcf275196fe36d1184fe40a43d55723646a7191a0ea9349db6f6d01f0a9757c919812d5cae366e84f82eb13eb050f658b2a79014f5f0c7ea3
+secret_key_base: d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
 
 acceptance: *default
 SECRETS
@@ -54,6 +54,7 @@ SECRETS
 bundle install --jobs 4 --retry 10
 
 export target_env=development
+export secret_key_base=d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
 
 cp config/environments/development.rb.sample config/environments/development.rb
 $(dirname $0)/verify-or-create-database.sh
