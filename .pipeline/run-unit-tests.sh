@@ -25,7 +25,6 @@ function create_secrets {
   hostname=$(get_db_hostname --region ${region} --stackname ${stackname})
   echo ${hostname}
   cat <<SECRETS > secret.values
-  environment: development
   secret_key_base: d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
   db_host: $(get_db_hostname --region ${region} --stackname $(get_pipeline_property --key open_cabinet_rds_stack_name))
   db_un: dbuser
@@ -33,12 +32,7 @@ function create_secrets {
   un: user
   pw: password
   import_key: tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef
-  development: *default
-  test: 
-    <<: *default
-    secret_key_base: d9c69d37907ea27c1970faf75661433eb8ac11e725bece21fc32ca76274c40b0bb404b09548aa7441e1f801a04f10612c1d104b5388d41c525a9012621dcae01
-  acceptance: *default
-SECRETS
+ SECRETS
   set -x
 
   render_template --template-path '.pipeline/config/secrets.yml.erb' \
