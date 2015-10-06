@@ -5,35 +5,35 @@ DEPENDENCIES
     rel: amazon
   apt
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: apt
   ec2_env
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 6e4ad8361f8a3e70a1d2dd24bbbf3a6bd2560e9f
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: ec2_env
   https_ssl
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: https_ssl
   java
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: java
   newrelic
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: newrelic
   passenger_nginx
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: passenger_nginx
   postgresql
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: postgresql
   saml_certs
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: saml_certs
 
 GRAPH
