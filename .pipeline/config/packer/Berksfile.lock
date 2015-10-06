@@ -1,7 +1,7 @@
 DEPENDENCIES
   amazon
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
-    revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
+    revision: 63c5508f0e1dadb8565e17abb6c74833485d92a0
     rel: amazon
   apt
     git: git@github.com:excellaco/devops-bootcamp-pipeline.git
