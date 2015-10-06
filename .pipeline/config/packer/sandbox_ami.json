@@ -1,6 +1,6 @@
 {
   "variables": {
-    "app_name": "myuscis-sandbox",
+    "app_name": "open-cabinet",
 
     "hardened_base_ami": "",
     "app_git_sha":"",
@@ -46,7 +46,7 @@
         "ssh-add /root/.ssh/github.pem",
 
         "mkdir -p /webapps",
-        "git clone -b master git@github.com:18F/{{user `app_name`}}.git /webapps/{{user `app_name`}}",
+        "git clone -b master git@github.com:pattyb0y/{{user `app_name`}}.git /webapps/{{user `app_name`}}",
         "cd /webapps/{{user `app_name`}}",
         "git checkout {{user `app_git_sha`}}",
         "sed -i 's/^source.*$/source \"{{ user `gemfile_source`}}\"/g' Gemfile",
@@ -110,9 +110,9 @@
           "license": "aa6e9eae80fbdde154fcc01c95241c60671a7220"
         },
 
-        "myuscis": {
+        "open-cabinet": {
           "app" : {
-            "name": "myuscis-sandbox"
+            "name": "open-cabinet"
           },
 
           "new_relic": {

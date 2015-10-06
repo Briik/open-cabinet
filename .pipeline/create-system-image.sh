@@ -1,21 +1,28 @@
 #!/bin/bash -elx
 set -o pipefail
 
-export vpc_label=${name_of_jenkins_stack/-*/}
+#export vpc_label=${name_of_jenkins_stack/-*/}
 
 #when all pipelines have updated bundler, this can happens at the user level
-bundler config --local mirror.http://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
-bundler config --local mirror.https://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
+#bundler config --local mirror.http://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
+#bundler config --local mirror.https://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
 
 time bundle install --jobs 4 \
                --gemfile=$(dirname $0)/Gemfile \
                --retry 10
+
+gem install myuscis-common-pipeline-0.0.30.gem
 
 source $(gem contents myuscis-common-pipeline | grep common-bash-functions)
 
 confirm_env_vars_available 'sdb_domain region pipeline_instance_id configStore configStorePass githubpem GIT_SHA'
 
 ###################################################################
+set_inventory_parameter --parameter sandbox_database_un --value dbuser
+set_inventory_parameter --parameter sandbox_database_pass --value dbpassword
+set_inventory_parameter --parameter base_myuscis_ami_id --value ami-61a2dc04
+set_inventory_parameter --parameter vpc --value ${vpc}
+set_inventory_parameter --parameter privateSubnetA --value subnet-059a8d72
 
 time berks vendor --berksfile .pipeline/config/packer/Berksfile .pipeline/cookbooks-vendor/
 

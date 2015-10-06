@@ -1,38 +1,38 @@
 DEPENDENCIES
   amazon
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: amazon
   apt
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: apt
   ec2_env
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 6e4ad8361f8a3e70a1d2dd24bbbf3a6bd2560e9f
     rel: ec2_env
   https_ssl
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: https_ssl
   java
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: java
   newrelic
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: newrelic
   passenger_nginx
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: passenger_nginx
   postgresql
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: postgresql
   saml_certs
-    git: git@github.com:18F/myuscis-common-cookbooks.git
+    git: git@github.com:excellaco/devops-bootcamp-pipeline.git
     revision: 629a1e3cd599242500e3ed2838c3832e4e7e0cba
     rel: saml_certs
 
