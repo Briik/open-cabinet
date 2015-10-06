@@ -133,7 +133,6 @@
         "java",
         "passenger_nginx",
         "newrelic",
-        "postgresql::server",
         "sandbox::ocr",
         "sandbox::default"
       ]

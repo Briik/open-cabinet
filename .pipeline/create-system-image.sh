@@ -18,8 +18,8 @@ source $(gem contents myuscis-common-pipeline | grep common-bash-functions)
 confirm_env_vars_available 'sdb_domain region pipeline_instance_id configStore configStorePass githubpem GIT_SHA'
 
 ###################################################################
-set_inventory_parameter --parameter sandbox_database_un --value postgres
-set_inventory_parameter --parameter sandbox_database_pass --value ""
+set_inventory_parameter --parameter sandbox_database_un --value dbuser
+set_inventory_parameter --parameter sandbox_database_pass --value dbpassword
 set_inventory_parameter --parameter base_myuscis_ami_id --value ami-61a2dc04
 set_inventory_parameter --parameter vpc --value ${vpc}
 set_inventory_parameter --parameter privateSubnetA --value subnet-059a8d72
