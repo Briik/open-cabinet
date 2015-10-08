@@ -87,21 +87,22 @@
 
           "users": [
             {
-              "username": "sandbox",
+              "username": "{{user `database_username`}}",
               "password": "{{user `database_password`}}",
               "superuser": false,
-              "createdb": true,
+              "createdb": false,
               "login": true
             }
           ],
 
           "databases": [
             {
-              "name": "sandbox",
+              "name": "OpenCabinetDB",
               "owner": "{{user `database_username`}}",
               "template": "template0",
               "encoding": "UTF-8",
-              "locale": "en_US.UTF-8"
+              "locale": "en_US.UTF-8",
+              "host": "bootcamp-development-open-cabinet-rds-20151002190654.cmfxlh1devrl.us-east-1.rds.amazonaws.com"
             }
           ]
         },
