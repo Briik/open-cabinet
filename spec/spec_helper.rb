@@ -1,5 +1,6 @@
 require 'codeclimate-test-reporter'
 require 'simplecov'
+require 'simplecov-rcov'
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 require_relative 'support/vcr_setup'
 SimpleCov.start 'rails'
