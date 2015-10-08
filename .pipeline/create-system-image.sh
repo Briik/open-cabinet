@@ -40,7 +40,7 @@ time /opt/packer/packer -machine-readable build \
        -var "subnet_id=$(get_inventory_parameter --parameter privateSubnetA)" \
        -var "app_git_sha=${GIT_SHA}" \
        -var "new_relic_environment=ACC" \
-       -var "gemfile_source=$(discover_gemfile_source)" \
+       -var "gemfile_source='https://rubygems.org'" \
        \
        .pipeline/config/packer/sandbox_ami.json 2>&1 | tee packer.output
 
