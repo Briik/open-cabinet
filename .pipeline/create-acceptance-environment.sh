@@ -4,12 +4,14 @@ set -o pipefail
 export vpc_label=${name_of_jenkins_stack/-*/}
 
 #when all pipelines have updated bundler, this can happens at the user level
-bundler config --local mirror.http://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
-bundler config --local mirror.https://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
+#bundler config --local mirror.http://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
+#bundler config --local mirror.https://rubygems.org http://${vpc_label,,}-nexus.${domain}/nexus/content/repositories/rubygemsproxy/
 
 bundle install --jobs 4 \
                --gemfile=$(dirname $0)/Gemfile \
                --retry 10
+
+gem install myuscis-common-pipeline-0.0.30.gem
 
 source $(gem contents myuscis-common-pipeline | grep common-bash-functions)
 

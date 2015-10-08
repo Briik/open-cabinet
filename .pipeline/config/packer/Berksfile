@@ -10,7 +10,7 @@ cookbook 'passenger_nginx', git: 'git@github.com:excellaco/devops-bootcamp-pipel
 cookbook 'newrelic', git: 'git@github.com:excellaco/devops-bootcamp-pipeline.git', rel: 'newrelic'
 cookbook 'https_ssl', git: 'git@github.com:excellaco/devops-bootcamp-pipeline.git', rel: 'https_ssl'
 cookbook 'saml_certs', git: 'git@github.com:excellaco/devops-bootcamp-pipeline.git', rel: 'saml_certs'
-#cookbook 'postgresql', git: 'git@github.com:excellaco/devops-bootcamp-pipeline.git', rel: 'postgresql'
+cookbook 'postgresql', git: 'git@github.com:excellaco/devops-bootcamp-pipeline.git', rel: 'postgresql'
 
 #secondary dep, but git resolution apparently not smart enough to find this since no source
 cookbook 'amazon', git: 'git@github.com:excellaco/devops-bootcamp-pipeline.git', rel: 'amazon'
