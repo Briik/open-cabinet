@@ -25,7 +25,7 @@ bash 'deploy app' do
   echo "**************************************************************"
   add-apt-repository ppa:brightbox/ruby-ng-experimental
   apt-get update
-  apt-get install ruby2.2
+  apt-get --assume-yes install ruby2.2
 
 
 
