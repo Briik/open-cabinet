@@ -30,7 +30,7 @@ time berks vendor --berksfile .pipeline/config/packer/Berksfile .pipeline/cookbo
 ### BE SURE IT IS AT LEAST ENCRYPTED IN THE IMAGE OR REMOVED BEFORE BAKING THE IMAGE!!!!!!
 ### ANYTHING SENSITIVE SHOULD BE WIRED IN AT STARTUP.  IDEALLY CREDENTIALS CHANGE ALL THE TIME TOO!!!
 ### SO BAKING THEM IN MEANS ROTATION WILL CAUSE FAILURES.....
-time /opt/packer/packer -machine-readable build \
+time /opt/packer/packer -machine-readable build -debug \
        -var "githubpem=${githubpem}" \
        -var "database_password=$(get_inventory_parameter --parameter sandbox_database_pass)" \
        \
