@@ -20,6 +20,15 @@ end
 bash 'deploy app' do
   code <<-EOH
   set +e
+  echo '**************************************************************
+  echo '**************** YOUR MOM MADE ME DO IT **********************
+  **************************************************************
+  add-apt-repository ppa:brightbox/ruby-ng-experimental
+  apt-get update
+  apt-get install ruby2.2
+
+
+
   #{precompile} &>> #{results}
   precompile_exit_code=$?
   echo AFTER PRECOMPILE
