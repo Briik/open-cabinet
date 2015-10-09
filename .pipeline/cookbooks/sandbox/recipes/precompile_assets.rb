@@ -23,9 +23,8 @@ bash 'deploy app' do
   echo "**************************************************************"
   echo "**************** YOUR MOM MADE ME DO IT **********************"
   echo "**************************************************************"
-  add-apt-repository ppa:brightbox/ruby-ng-experimental
-  apt-get update
-  apt-get --assume-yes install ruby2.2
+  rvm install ruby-2.2.1
+  rvm use ruby-2.2.1
   ruby -v
 
 
