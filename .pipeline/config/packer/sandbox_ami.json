@@ -54,6 +54,7 @@
         "gem install aws-sdk-core -v '<2.1.0'",
 
         "export secret_key_base=\"{{user `secret_key_base`}}\"",
+        "echo $secret_key_base",
 
         "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
         "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
