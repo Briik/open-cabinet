@@ -48,6 +48,11 @@
         "source /usr/local/rvm/scripts/rvm\n",
         "rvm install 2.2.1\n",
 
+        "apt-get install -y libgmp-dev",
+        "gem install chef",
+        "gem install aws-sdk -v '<2.1.0'",
+        "gem install aws-sdk-core -v '<2.1.0'",
+
         "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
         "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
         "chmod 600 /root/.ssh/github.pem /root/.ssh/config",
