@@ -38,6 +38,14 @@
         "#!/bin/bash -e",
         "sleep 10",
 
+        "echo '**************************************************************'",
+        "echo '**************** YOUR MOM MADE ME DO IT **********************'",
+        "echo '**************************************************************'",
+        "add-apt-repository ppa:brightbox/ruby-ng-experimental",
+        "apt-get update",
+        "apt-get install ruby2.2",
+
+
         "apt-get update",
         "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
         "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
