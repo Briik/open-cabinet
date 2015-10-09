@@ -43,8 +43,11 @@
         "echo '**************************************************************'",
         "echo '**************** YOUR MOM MADE ME DO IT **********************'",
         "echo '**************************************************************'",
-        "bash $HOME/.rvm/scripts/rvm install ruby-2.2.1",
-        "bash $HOME/.rvm/scripts/rvm use ruby-2.2.1",
+        "apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev",
+        "curl -L https://get.rvm.io | bash -s stable",
+        "source ~/.rvm/scripts/rvm",
+        "bash ~/.rvm/scripts/rvm install ruby-2.2.1",
+        "bash ~/.rvm/scripts/rvm use ruby-2.2.1",
 
         "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
         "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
