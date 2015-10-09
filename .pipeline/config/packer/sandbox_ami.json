@@ -127,7 +127,13 @@
 
         "myuscis": {
           "app" : {
-            "name": "open-cabinet"
+            "name": "open-cabinet",
+            "un" : "user",
+            "pw" : "password",
+            "db_un" : "dbuser",
+            "db_pw" : "dbpassword",
+            "secret_key" : "${secret_key_base}",
+            "import_key" : "tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef"
           },
 
           "new_relic": {
