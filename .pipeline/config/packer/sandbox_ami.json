@@ -39,6 +39,13 @@
         "sleep 10",
 
         "apt-get update",
+
+        "echo '**************************************************************'",
+        "echo '**************** YOUR MOM MADE ME DO IT **********************'",
+        "echo '**************************************************************'",
+        "rvm install ruby-2.2.1",
+        "rvm use ruby-2.2.1",
+
         "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
         "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
         "chmod 600 /root/.ssh/github.pem /root/.ssh/config",

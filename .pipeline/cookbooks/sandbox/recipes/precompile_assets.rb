@@ -20,13 +20,8 @@ end
 bash 'deploy app' do
   code <<-EOH
   set +e
-  echo "**************************************************************"
-  echo "**************** YOUR MOM MADE ME DO IT **********************"
-  echo "**************************************************************"
-  rvm install ruby-2.2.1
-  rvm use ruby-2.2.1
-  ruby -v
 
+  ruby -v
 
   #{precompile} &>> #{results}
   precompile_exit_code=$?
