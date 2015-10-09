@@ -43,8 +43,8 @@
         "echo '**************************************************************'",
         "echo '**************** YOUR MOM MADE ME DO IT **********************'",
         "echo '**************************************************************'",
-        "rvm install ruby-2.2.1",
-        "rvm use ruby-2.2.1",
+        "bash $HOME/.rvm/scripts/rvm install ruby-2.2.1",
+        "bash $HOME/.rvm/scripts/rvm use ruby-2.2.1",
 
         "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
         "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
