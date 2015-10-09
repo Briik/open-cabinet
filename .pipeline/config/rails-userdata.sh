@@ -9,6 +9,9 @@ mkdir -p /userdata
 cat > /userdata/init-script.sh <<'INITSCRIPT'
 #!/bin/bash -ex
 
+echo "**************************************************************"
+echo "**************** YOUR MOM MADE ME DO IT **********************"
+echo "**************************************************************"
 add-apt-repository ppa:brightbox/ruby-ng-experimental
 apt-get update
 apt-get install ruby2.2
