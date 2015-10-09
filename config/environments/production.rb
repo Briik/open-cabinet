@@ -85,8 +85,13 @@ Rails.application.configure do
        socket_failure_delay: 0.2
       }
 
-  config.secret_key_base = ENV['SECRET_KEY_BASE']
-  config.basic_auth_user = ENV['BASIC_AUTH_USERNAME']
-  config.basic_auth_pass = ENV['BASIC_AUTH_PASSWORD']
-  config.open_fda_import_key = ENV["OPEN_FDA_IMPORT_KEY"]
+  # config.secret_key_base = ENV['SECRET_KEY_BASE']
+  # config.basic_auth_user = ENV['BASIC_AUTH_USERNAME']
+  # config.basic_auth_pass = ENV['BASIC_AUTH_PASSWORD']
+  # config.open_fda_import_key = ENV["OPEN_FDA_IMPORT_KEY"]
+  config.open_fda_import_key = Rails.application.secrets[:import_key]
+  config.secret_key_base = ENV["secret_key_base"]
+  config.basic_auth_user = ENV['BASIC_AUTH_USERNAME'] || Rails.application.secrets[:BASIC_AUTH_USERNAME]
+  config.basic_auth_pass = ENV['BASIC_AUTH_PASSWORD'] || Rails.application.secrets[:BASIC_AUTH_PASSWORD]
+
 end
