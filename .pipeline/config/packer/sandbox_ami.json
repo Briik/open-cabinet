@@ -43,6 +43,10 @@
         "echo '**************************************************************'",
         "echo '**************** YOUR MOM MADE ME DO IT **********************'",
         "echo '**************************************************************'",
+
+        "export secret_key_base=\"{{user `secret_key_base`}}\"",
+        "echo $secret_key_base",
+
         "\\curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles\n",
         "echo 'source $HOME/.rvm/scripts/rvm' >> ~/.bash_profile\n",
         "source /usr/local/rvm/scripts/rvm\n",
@@ -52,9 +56,6 @@
         "gem install chef",
         "gem install aws-sdk -v '<2.1.0'",
         "gem install aws-sdk-core -v '<2.1.0'",
-
-        "export secret_key_base=\"{{user `secret_key_base`}}\"",
-        "echo $secret_key_base",
 
         "cat > /root/.ssh/github.pem << GITHUBPEM\n{{ user `githubpem`}}\nGITHUBPEM",
         "echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> /root/.ssh/config",
