@@ -19,6 +19,8 @@ confirm_env_vars_available 'sdb_domain region pipeline_instance_id name_of_jenki
 ###################################################################
 # the discover_vpc_configuration function seems to want this value, even though it doesn't seem to use it
 set_inventory_parameter --parameter vpc_identifier --value ${vpc}
+set_inventory_parameter --parameter basicAuthUsername --value "user"
+set_inventory_parameter --parameter basicAuthPassword --value "password"
 
 discover_vpc_configuration
 
@@ -44,16 +46,16 @@ aws cloudformation create-stack \
   --disable-rollback \
   --capabilities CAPABILITY_IAM \
   --parameters \
-    ParameterKey=secretKeyBase,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_pipeline_property --key secret_key_base)) \
+    ParameterKey=secretKeyBase,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_property --key secret_key_base)) \
     ParameterKey=authPass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter basicAuthPassword)) \
     ParameterKey=databasePass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter sandbox_database_pass)) \
-#    ParameterKey=uspsApiKey,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter usps_api_key)) \
-#    ParameterKey=elisPassword,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter elis_password)) \
+    ParameterKey=uspsApiKey,ParameterValue="" \
+    ParameterKey=elisPassword,ParameterValue="" \
     ParameterKey=certPass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext ${certPass}) \
-#    ParameterKey=sfClientSecret,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext "$(get_inventory_parameter --parameter ${target_env}_sales_force_client_secret --blank-ok)") \
-#    ParameterKey=sfPassword,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext "$(get_inventory_parameter --parameter ${target_env}_sales_force_password --blank-ok)") \
-#    ParameterKey=samlPassword,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter ${vpc_id}_saml_pw)) \
-#    ParameterKey=samlPrivateKey,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter ${vpc_id}_saml_private_key)) \
+    ParameterKey=sfClientSecret,ParameterValue="" \
+    ParameterKey=sfPassword,ParameterValue="" \
+    ParameterKey=samlPassword,ParameterValue="" \
+    ParameterKey=samlPrivateKey,ParameterValue="" \
     \
     ParameterKey=imageId,ParameterValue=$(get_pipeline_property --key sandbox_amiid) \
     ParameterKey=InstanceKeyPair,ParameterValue=${name_of_jenkins_stack} \
@@ -67,14 +69,14 @@ aws cloudformation create-stack \
     ParameterKey=databaseHost,ParameterValue=localhost \
     ParameterKey=databaseUser,ParameterValue=$(get_inventory_parameter --parameter sandbox_database_un) \
     ParameterKey=authUser,ParameterValue=$(get_inventory_parameter --parameter basicAuthUsername) \
-#    ParameterKey=samlEndpointUrl,ParameterValue=$(get_saml_url --target-env development --vpc ${vpc_id}) \
-#    ParameterKey=samlIdpCertObject,ParameterValue=$(get_inventory_parameter --parameter ${vpc_id}_saml_idp_cert) \
-#    ParameterKey=samlCertObject,ParameterValue=$(get_inventory_parameter --parameter ${vpc_id}_saml_cert) \
-#    ParameterKey=callbackUrl,ParameterValue=$(get_saml_callback_url --target-env $(discover_subdomain_name) --vpc ${vpc_id}) \
-#    ParameterKey=portalEndpoint,ParameterValue=$(discover_portal_endpoint ${target_env}) \
-#    ParameterKey=sfEndpoint,ParameterValue="$(get_inventory_parameter --parameter ${target_env}_sales_force_endpoint)" \
-#    ParameterKey=sfClientId,ParameterValue="$(get_inventory_parameter --parameter ${target_env}_sales_force_client_id)" \
-#    ParameterKey=sfUserName,ParameterValue="$(get_inventory_parameter --parameter ${target_env}_sales_force_user_name)" \
+    ParameterKey=samlEndpointUrl,ParameterValue="" \
+    ParameterKey=samlIdpCertObject,ParameterValue="" \
+    ParameterKey=samlCertObject,ParameterValue="" \
+    ParameterKey=callbackUrl,ParameterValue="" \
+    ParameterKey=portalEndpoint,ParameterValue="" \
+    ParameterKey=sfEndpoint,ParameterValue="" \
+    ParameterKey=sfClientId,ParameterValue="" \
+    ParameterKey=sfUserName,ParameterValue="" \
     \
   --tags \
     Key=StackType,Value=DEV \
