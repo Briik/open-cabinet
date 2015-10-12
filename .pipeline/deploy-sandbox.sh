@@ -47,7 +47,7 @@ aws cloudformation create-stack \
   --disable-rollback \
   --capabilities CAPABILITY_IAM \
   --parameters \
-    ParameterKey=secretKeyBase,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --key secret_key_base)) \
+    ParameterKey=secretKeyBase,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter secret_key_base)) \
     ParameterKey=authPass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter basicAuthPassword)) \
     ParameterKey=databasePass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter sandbox_database_pass)) \
     ParameterKey=uspsApiKey,ParameterValue="" \
