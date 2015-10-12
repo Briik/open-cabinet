@@ -262,7 +262,8 @@ CloudFormation {
         Timeout 300
       }
 
-      Scheme 'internal'
+      # comment this out - public by default
+      #Scheme 'internal'
 
       # Property 'AccessLoggingPolicy', {
       #   'Enabled' => true,
