@@ -21,6 +21,7 @@ confirm_env_vars_available 'sdb_domain region pipeline_instance_id name_of_jenki
 set_inventory_parameter --parameter vpc_identifier --value ${vpc}
 set_inventory_parameter --parameter basicAuthUsername --value "user"
 set_inventory_parameter --parameter basicAuthPassword --value "password"
+set_inventory_parameter --parameter publicSubnet --value "subnet-189a8d6f"
 
 discover_vpc_configuration
 
