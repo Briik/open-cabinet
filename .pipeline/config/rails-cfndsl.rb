@@ -98,7 +98,7 @@ CloudFormation {
   Parameter('VpcId') {
     String
     Description 'The VPC to deploy the instance to'
-    Default 'vpc-427c8427'
+    Default 'vpc-82b47fe6'
   }
 
   Parameter('certPass') {
@@ -244,7 +244,7 @@ CloudFormation {
           LoadBalancerPort '443'
           InstancePort '443'
           InstanceProtocol 'SSL'
-          SSLCertificateId FnJoin('', ['arn:aws:iam::', Ref('AWS::AccountId'), ':server-certificate/myuscis-cert'] )
+          SSLCertificateId FnJoin('', ['arn:aws:iam::', Ref('AWS::AccountId'), ':server-certificate/jenkins-cert'] )
           Protocol 'SSL'
         }
       ]
