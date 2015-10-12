@@ -17,6 +17,8 @@ source $(gem contents myuscis-common-pipeline | grep common-bash-functions)
 confirm_env_vars_available 'sdb_domain region pipeline_instance_id name_of_jenkins_stack certPass'
 
 ###################################################################
+# the discover_vpc_configuration function seems to want this value, even though it doesn't seem to use it
+set_inventory_parameter --parameter vpc_identifier --value ${vpc}
 
 discover_vpc_configuration
 
