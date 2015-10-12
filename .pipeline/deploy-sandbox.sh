@@ -46,7 +46,7 @@ aws cloudformation create-stack \
   --disable-rollback \
   --capabilities CAPABILITY_IAM \
   --parameters \
-    ParameterKey=secretKeyBase,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_property --key secret_key_base)) \
+    ParameterKey=secretKeyBase,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --key secret_key_base)) \
     ParameterKey=authPass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter basicAuthPassword)) \
     ParameterKey=databasePass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter sandbox_database_pass)) \
     ParameterKey=uspsApiKey,ParameterValue="" \
@@ -60,7 +60,7 @@ aws cloudformation create-stack \
     ParameterKey=imageId,ParameterValue=$(get_pipeline_property --key sandbox_amiid) \
     ParameterKey=InstanceKeyPair,ParameterValue=${name_of_jenkins_stack} \
     ParameterKey=VpcId,ParameterValue=${vpc_id} \
-    ParameterKey=vpcCidr,ParameterValue=$(discover_vpc_cidr_block ${vpc_id}) \
+    ParameterKey=vpcCidr,ParameterValue="10.193.218.0/23" \
     ParameterKey=ASGSubnets,ParameterValue=$(get_inventory_parameter --parameter privateSubnetA) \
     ParameterKey=ASGSubnetAZs,ParameterValue=$(get_subnet_azs --subnet-csv $(get_inventory_parameter --parameter privateSubnetA)) \
     ParameterKey=ELBSubnets,ParameterValue=$(get_inventory_parameter --parameter publicSubnet) \
