@@ -244,7 +244,7 @@ CloudFormation {
           LoadBalancerPort '443'
           InstancePort '443'
           InstanceProtocol 'SSL'
-          SSLCertificateId FnJoin('', ['arn:aws:iam::', Ref('AWS::AccountId'), ':server-certificate/jenkins-cert'] )
+          SSLCertificateId FnJoin('', ['arn:aws:iam::', Ref('AWS::AccountId'), ':server-certificate/bootcamp-jenkinscert'] )
           Protocol 'SSL'
         }
       ]
