@@ -458,26 +458,12 @@ CloudFormation {
     export_all_vars = [
       "#!/bin/bash -x\n",
       'export certPass=\'', Ref('certPass'), "'\n",
-      'export samlPassword=\'', Ref('samlPassword'), "'\n",
-      'export samlIdpCertObject=\'', Ref('samlIdpCertObject'), "'\n",
-      'export samlCertObject=\'', Ref('samlCertObject'), "'\n",
-      'export samlPrivateKey=\'', Ref('samlPrivateKey'), "'\n",
-      'export callback_url=\'', Ref('callbackUrl'), "'\n",
       'export basic_auth_username=\'', Ref('authUser'), "'\n",
       'export basic_auth_password=\'', Ref('authPass'), "'\n",
       'export secret_key_base=\'', Ref('secretKeyBase'), "'\n",
-      'export usps_api_key=\'', Ref('uspsApiKey'), "'\n",
-      'export saml_endpoint_url=\'', Ref('samlEndpointUrl'), "'\n",
-      'export portal_endpoint=\'', Ref('portalEndpoint'), "'\n",
-      'export elis_password=\'', Ref('elisPassword'), "'\n",
       'export database_host=\'', Ref('databaseHost'), "'\n",
       'export database_username=\'', Ref('databaseUser'), "'\n",
       'export database_password=\'', Ref('databasePass'), "'\n",
-      'export sales_force_endpoint=\'', Ref('sfEndpoint'), "'\n",
-      'export sales_force_client_id=\'', Ref('sfClientId'), "'\n",
-      'export sales_force_client_secret=\'', Ref('sfClientSecret'), "'\n",
-      'export sales_force_user_name=\'', Ref('sfUserName'), "'\n",
-      'export sales_force_password=\'', Ref('sfPassword'), "'\n"
     ]
 
     signal_completion = [
