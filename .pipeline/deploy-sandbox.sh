@@ -85,7 +85,7 @@ aws cloudformation create-stack \
     Key=application-instance-guid,Value="$(generate_stack_uuid_for_zombie_sweeper)" \
     Key=vpcIdentifier,Value=${vpc_label}
 
-do_retry "monitor_stack --stack ${rails_stack_name} --region ${region}"
+do_retry "monitor_stack --stack ${rails_stack_name} --region ${region}" 15 3
 
 set_pipeline_property --key sandbox_url \
                       --value $(get_elb_url --region ${region} --stackname ${rails_stack_name})
