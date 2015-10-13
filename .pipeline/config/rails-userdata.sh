@@ -4,6 +4,9 @@
 export REPO_NAME=myuscis-sandbox
 
 source /etc/profile
+source /etc/profile.d/rvm.sh
+
+rvm --default use 2.2.1
 
 mkdir -p /userdata
 cat > /userdata/init-script.sh <<'INITSCRIPT'
@@ -49,16 +52,15 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
       "name": "open-cabinet",
 
       "basic_auth_username": "${basic_auth_username}",
-      "basic_auth_password": "@basic_auth_password",
-      "secret_key_base": "@secret_key_base",
-
-      "database_host": "${db_host}",
+      "basic_auth_password": "${asic_auth_password}",
+      "secret_key_base": "${secret_key_base}",
+      "database_host": "${database_host}",
       "database_username": "${database_username}",
-      "database_password": "@database_password"
+      "database_password": "${database_password}"
     },
 
     "https_ssl": {
-      "cert_password": "@certPass"
+      "cert_password": "${certPass}"
     }
 
   }
