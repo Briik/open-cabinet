@@ -55,12 +55,12 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
 
       "database_host": "localhost",
       "database_username": "${database_username}",
-      "database_password": "@database_password",
+      "database_password": "@database_password"
     },
 
     "https_ssl": {
       "cert_password": "@certPass"
-    },
+    }
 
   }
 }
