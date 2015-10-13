@@ -20,19 +20,28 @@ http {
 
     server {
         listen         80;
+        return 301 https://$host$request_uri;
+    }
+    server {
+        listen 443 ssl backlog=65535;
+        ssl_certificate /etc/nginx/myuscis-internal.crt;
+        ssl_certificate_key /etc/nginx/myuscis-internal.key;
+
+        ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers         HIGH:!aNULL:!MD5;
         passenger_enabled on;
 
         root <%= @app_location %>/public;
 
         passenger_friendly_error_pages on;
         passenger_pass_header X-Accel-Redirect;
-
+ 
         location ~* \.(js|css|png|jpg|jpeg|gif|ico|woff)$ {
-           expires 14d;
-           log_not_found off;
-           passenger_enabled on;
-           add_header Cache-Control "private";
-       }
+            expires 14d;
+            log_not_found off;
+            passenger_enabled on;
+            add_header Cache-Control "private";
+        }
     }
 
     sendfile on;

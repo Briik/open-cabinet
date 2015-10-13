@@ -383,7 +383,7 @@ CloudFormation {
       'export database_host=\'', Ref('databaseHost'), "'\n",
       'export database_username=\'', Ref('databaseUser'), "'\n",
       'export database_password=\'', Ref('databasePass'), "'\n",
-      'export import_key=\'', "tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef",
+      'export import_key=\'', "tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef", "'\n",
     ]
 
     signal_completion = [
