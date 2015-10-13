@@ -46,9 +46,8 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
 
   "myuscis": {
     "app" : {
-      "name": "myuscis-sandbox",
+      "name": "open-cabinet",
 
-      "callback_url" : "${callback_url}",
       "basic_auth_username": "${basic_auth_username}",
       "basic_auth_password": "@basic_auth_password",
       "secret_key_base": "@secret_key_base",
@@ -74,7 +73,7 @@ done
 
 cat > /userdata/solo.rb <<'SOLORB'
 file_cache_path  '/userdata/chef/'
-cookbook_path ['/userdata/cookbooks-0', '/webapps/myuscis-sandbox/.pipeline/cookbooks']
+cookbook_path ['/userdata/cookbooks-0', '/webapps/open-cabinet/.pipeline/cookbooks']
 SOLORB
 
 cat /userdata/formattedattributes.json | awk '{printf("%s",$0)}' > /userdata/attributes.json
