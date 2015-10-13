@@ -50,13 +50,7 @@ aws cloudformation create-stack \
     ParameterKey=secretKeyBase,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter secret_key_base)) \
     ParameterKey=authPass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter basicAuthPassword)) \
     ParameterKey=databasePass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter sandbox_database_pass)) \
-    ParameterKey=uspsApiKey,ParameterValue="123" \
-    ParameterKey=elisPassword,ParameterValue="something" \
     ParameterKey=certPass,ParameterValue=$(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext ${certPass}) \
-    ParameterKey=sfClientSecret,ParameterValue="something" \
-    ParameterKey=sfPassword,ParameterValue="something" \
-    ParameterKey=samlPassword,ParameterValue="something" \
-    ParameterKey=samlPrivateKey,ParameterValue="something" \
     \
     ParameterKey=imageId,ParameterValue=$(get_pipeline_property --key sandbox_amiid) \
     ParameterKey=InstanceKeyPair,ParameterValue=${name_of_jenkins_stack} \
@@ -70,14 +64,6 @@ aws cloudformation create-stack \
     ParameterKey=databaseHost,ParameterValue=localhost \
     ParameterKey=databaseUser,ParameterValue=$(get_inventory_parameter --parameter sandbox_database_un) \
     ParameterKey=authUser,ParameterValue=$(get_inventory_parameter --parameter basicAuthUsername) \
-    ParameterKey=samlEndpointUrl,ParameterValue="something" \
-    ParameterKey=samlIdpCertObject,ParameterValue="something" \
-    ParameterKey=samlCertObject,ParameterValue="something" \
-    ParameterKey=callbackUrl,ParameterValue="something" \
-    ParameterKey=portalEndpoint,ParameterValue="something" \
-    ParameterKey=sfEndpoint,ParameterValue="something" \
-    ParameterKey=sfClientId,ParameterValue="something" \
-    ParameterKey=sfUserName,ParameterValue="something" \
     \
   --tags \
     Key=StackType,Value=DEV \
