@@ -1,9 +1,9 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: sandbox
+  database: OpenCabinetDB
   pool: 50
-  username: <%= @db_user %>
-  password: <%= @db_pass %>
+  username: <%= @db_un %>
+  password: <%= @db_pw %>
   min_messages: warning
-  host: <%= @db_url %>
+  host: <%= @db_host %>

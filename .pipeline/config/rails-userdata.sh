@@ -52,7 +52,7 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
       "basic_auth_password": "@basic_auth_password",
       "secret_key_base": "@secret_key_base",
 
-      "database_host": "localhost",
+      "database_host": "@host",
       "database_username": "${database_username}",
       "database_password": "@database_password"
     },
@@ -81,7 +81,7 @@ cat /userdata/formattedattributes.json | awk '{printf("%s",$0)}' > /userdata/att
 chef-solo -l debug -c /userdata/solo.rb -j /userdata/attributes.json
 
 #necessary?
-update-alternatives --set ruby /usr/bin/ruby2.1
+#update-alternatives --set ruby /usr/bin/ruby2.1
 
 service nginx restart
 INITSCRIPT
