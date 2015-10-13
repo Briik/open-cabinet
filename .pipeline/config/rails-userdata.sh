@@ -18,7 +18,7 @@ service nginx stop
 az=$(curl --silent http://169.254.169.254/latest/meta-data/placement/availability-zone)
 region=${az::-1}
 
-sensitive_stuff=(certPass samlPassword samlPrivateKey basic_auth_password secret_key_base usps_api_key elis_password database_password sales_force_client_secret sales_force_password)
+sensitive_stuff=(certPass basic_auth_password secret_key_base database_password)
 for sensitive_item in ${sensitive_stuff[@]}
 do
   #make me binary
@@ -41,7 +41,6 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
   "run_list": [
     "recipe[ec2_env]",
     "recipe[https_ssl]",
-    "recipe[saml_certs]",
     "recipe[sandbox::from_ami]"
   ],
 
@@ -53,33 +52,16 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
       "basic_auth_username": "${basic_auth_username}",
       "basic_auth_password": "@basic_auth_password",
       "secret_key_base": "@secret_key_base",
-      "usps_api_key": "@usps_api_key",
-
-      "saml_endpoint_url": "${saml_endpoint_url}",
-      "portal_endpoint": "${portal_endpoint}",
-      "elis_password": "@elis_password",
 
       "database_host": "localhost",
       "database_username": "${database_username}",
       "database_password": "@database_password",
-
-      "sales_force_endpoint": "${sales_force_endpoint}",      
-      "sales_force_client_id": "${sales_force_client_id}",
-      "sales_force_client_secret": "@sales_force_client_secret",
-      "sales_force_user_name": "${sales_force_user_name}",
-      "sales_force_password": "@sales_force_password"
     },
 
     "https_ssl": {
       "cert_password": "@certPass"
     },
 
-    "saml": {
-      "cert_password": "@samlPassword",
-      "idp_object_name": "${samlIdpCertObject}",
-      "cert_object_name": "${samlCertObject}",
-      "private_key_object_name": "@samlPrivateKey"
-    }
   }
 }
 CHEFJSON
