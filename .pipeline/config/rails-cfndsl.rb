@@ -55,14 +55,6 @@ CloudFormation {
     Description 'The password that the basic authentication on the website will use'
   }
 
-  Parameter('uspsApiKey') {
-    String
-
-    NoEcho true
-    Description 'The Api key for USPS'
-    Default ''
-  }
-
   Parameter('databaseHost') {
     String
     Description 'The location of the PostgreSQL DB that Explore My Options will use'
@@ -108,82 +100,9 @@ CloudFormation {
     Description 'The password to decrypt the SSL certificate and key'
   }
 
-  Parameter('callbackUrl') {
-    String
-    Description 'The URL SAML authentications will point back to'
-  }
-
-  Parameter('samlEndpointUrl') {
-    String
-    Description 'The URL SAML authentications will point to'
-  }
-
-  Parameter('samlPassword') {
-    String
-    NoEcho true
-    Description 'The password to decrypt the SAML certs'
-  }
-
-  Parameter('samlIdpCertObject') {
-    String
-    Description 'The name of the encrypted identity provider certificate'
-  }
-
-  Parameter('samlCertObject') {
-    String
-    Description 'The name of the encrypted saml certificate'
-  }
-
-  Parameter('samlPrivateKey') {
-    String
-    Description 'The name of the encrypted saml private key'
-  }
-
-  Parameter('portalEndpoint') {
-    String
-    Description 'The url of the portal endpoint'
-    Default ''
-  }
-
-  Parameter('elisPassword') {
-    String
-    NoEcho true
-    Description 'Elis integration password'
-    Default ''
-  }
-
   Parameter('KeyArn') {
     String
     Description 'kms key alias to decrypt with'
-  }
-
- Parameter('sfEndpoint') {
-      String
-      Description 'The Sales Force endpoint'
-  }
-
-  Parameter('sfClientId') {
-      String
-      NoEcho true
-      Description 'The name of the value of the Sales Force client Id'
-  }
-
-  Parameter('sfClientSecret') {
-      String
-      NoEcho true
-      Description 'The name of the value of the Sales Force client secret'
-  }
-
-  Parameter('sfUserName') {
-      String
-      NoEcho true
-      Description 'The name of the value of the Sales Force client username'
-  }
-
-  Parameter('sfPassword') {
-      String
-      NoEcho true
-      Description 'The name of the value of the Sales Force client password'
   }
 
   CloudFormation_WaitConditionHandle('WaitForInstanceWaitHandle')
