@@ -262,7 +262,7 @@ CloudFormation {
         Timeout 300
       }
 
-      Scheme 'internet-facing'
+      #Scheme 'internet-facing'
 
       # Property 'AccessLoggingPolicy', {
       #   'Enabled' => true,
