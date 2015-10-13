@@ -52,7 +52,7 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
       "basic_auth_password": "@basic_auth_password",
       "secret_key_base": "@secret_key_base",
 
-      "database_host": "@db_host",
+      "database_host": "${db_host}",
       "database_username": "${database_username}",
       "database_password": "@database_password"
     },

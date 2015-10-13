@@ -61,7 +61,7 @@ aws cloudformation create-stack \
     ParameterKey=ELBSubnets,ParameterValue=$(get_inventory_parameter --parameter publicSubnet) \
     ParameterKey=KeyArn,ParameterValue=$(discover_key_arn_for_alias --alias-name ${encryption_key_alias}) \
     \
-    ParameterKey=databaseHost,ParameterValue=localhost \
+    ParameterKey=databaseHost,ParameterValue="bootcamp-development-open-cabinet-rds-20151002190654.cmfxlh1devrl.us-east-1.rds.amazonaws.com" \
     ParameterKey=databaseUser,ParameterValue=$(get_inventory_parameter --parameter sandbox_database_un) \
     ParameterKey=authUser,ParameterValue=$(get_inventory_parameter --parameter basicAuthUsername) \
     \
