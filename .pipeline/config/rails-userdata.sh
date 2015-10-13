@@ -21,23 +21,23 @@ service nginx stop
 az=$(curl --silent http://169.254.169.254/latest/meta-data/placement/availability-zone)
 region=${az::-1}
 
-sensitive_stuff=(certPass basic_auth_password secret_key_base database_password)
-for sensitive_item in ${sensitive_stuff[@]}
-do
-  #make me binary
-  echo ${!sensitive_item} | base64 --decode > /userdata/${sensitive_item}_enc
-
-  #decrypt the blob
-  aws kms decrypt --ciphertext-blob fileb:///userdata/${sensitive_item}_enc \
-                  --output text \
-                  --region ${region} \
-                  --query Plaintext | base64 --decode > /userdata/${sensitive_item}
-  if [[ ${PIPESTATUS[0]} -ne 0 ]];
-  then
-    echo Decryption failed failed
-    exit 1
-  fi
-done
+#sensitive_stuff=(certPass basic_auth_password secret_key_base database_password)
+#for sensitive_item in ${sensitive_stuff[@]}
+#do
+#  #make me binary
+#  echo ${!sensitive_item} | base64 --decode > /userdata/${sensitive_item}_enc
+#
+#  #decrypt the blob
+#  aws kms decrypt --ciphertext-blob fileb:///userdata/${sensitive_item}_enc \
+#                  --output text \
+#                  --region ${region} \
+#                  --query Plaintext | base64 --decode > /userdata/${sensitive_item}
+#  if [[ ${PIPESTATUS[0]} -ne 0 ]];
+#  then
+#    echo Decryption failed failed
+#    exit 1
+#  fi
+#done
 
 cat > /userdata/formattedattributes.json <<CHEFJSON
 {
@@ -52,7 +52,7 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
       "name": "open-cabinet",
 
       "basic_auth_username": "${basic_auth_username}",
-      "basic_auth_password": "${asic_auth_password}",
+      "basic_auth_password": "${basic_auth_password}",
       "secret_key_base": "${secret_key_base}",
       "database_host": "${database_host}",
       "database_username": "${database_username}",
@@ -67,11 +67,11 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
 }
 CHEFJSON
 
-for sensitive_item in ${sensitive_stuff[@]}
-do
-  ruby -pe "gsub(/@${sensitive_item}/, IO.read('/userdata/${sensitive_item}').chomp)" < /userdata/formattedattributes.json > /userdata/f2.json
-  mv /userdata/f2.json /userdata/formattedattributes.json
-done
+#for sensitive_item in ${sensitive_stuff[@]}
+#do
+#  ruby -pe "gsub(/@${sensitive_item}/, IO.read('/userdata/${sensitive_item}').chomp)" < /userdata/formattedattributes.json > /userdata/f2.json
+#  mv /userdata/f2.json /userdata/formattedattributes.json
+#done
 
 cat > /userdata/solo.rb <<'SOLORB'
 file_cache_path  '/userdata/chef/'
