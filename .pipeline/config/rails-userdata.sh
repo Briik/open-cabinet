@@ -50,12 +50,12 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
     "app" : {
       "name": "open-cabinet",
 
-      "basic_auth_username": "${basic_auth_username}",
-      "basic_auth_password": "${basic_auth_password}",
-      "secret_key_base": "${secret_key_base}",
-      "database_host": "${database_host}",
-      "database_username": "${database_username}",
-      "database_password": "${database_password}"
+      "un": "${basic_auth_username}",
+      "pw": "${basic_auth_password}",
+      "secret_key": "${secret_key_base}",
+      "db_host": "${database_host}",
+      "db_un": "${database_username}",
+      "db_pw": "${database_password}"
     },
 
     "https_ssl": {
