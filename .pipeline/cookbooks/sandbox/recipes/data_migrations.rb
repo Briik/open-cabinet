@@ -3,9 +3,9 @@ template "#{node[:myuscis][:app][:location]}/config/database.yml" do
   source 'database.yml.erb'
   action :create
   variables ({
-              db_host: node[:myuscis][:app][:database_host],
-              db_un: node[:myuscis][:app][:database_username],
-              db_pw: node[:myuscis][:app][:database_password],
+              database_host: node[:myuscis][:app][:database_host],
+              database_username: node[:myuscis][:app][:database_username],
+              database_password: node[:myuscis][:app][:database_password],
             })
 end
 
@@ -22,5 +22,5 @@ bash 'create and migrate DB' do
   EOH
 
   cwd node[:myuscis][:app][:location]
-  user 'root'
+  #user 'root'
 end
