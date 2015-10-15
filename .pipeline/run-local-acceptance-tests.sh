@@ -45,7 +45,6 @@ function run_local_acceptance_tests {
   export RAILS_ENV=test
 
   bundle exec rake db:drop db:create db:migrate
-  bundle exec rake searchable_medicines:import
   bundle exec rake cucumber \
     CUCUMBER_OPTS="--format json --out ${test_result_dir}/local_acceptance_test_result.json --format pretty"
 }
@@ -59,6 +58,7 @@ prepare_test_result_dir
 
 export secret_key_base=$(get_inventory_parameter --parameter secret_key_base)
 create_secrets
+export import_key
 run_local_acceptance_tests
 
 set_pipeline_property --key furthest_pipeline_stage_completed \
