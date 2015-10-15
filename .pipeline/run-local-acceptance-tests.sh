@@ -30,7 +30,7 @@ function create_secrets {
   database_password: dbpassword
   basic_auth_username: user
   basic_auth_password: password
-  import_key: ${get_inventory_parameter --parameter import_key}
+  import_key: $(get_inventory_parameter --parameter import_key)
 SECRETS
   set -x
 
