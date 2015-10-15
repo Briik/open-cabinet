@@ -70,8 +70,6 @@ group :development do
   gem 'guard'
   gem 'guard-rubocop', '~> 1.1.0'
   gem 'guard-rspec', '~> 4.5.2'
-  gem 'simplecov'
-  gem 'simplecov-rcov'
 end
 
 group :acceptance, :travis do

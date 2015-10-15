@@ -20,9 +20,19 @@ http {
 
     server {
         listen         80;
+        return 301 https://$host$request_uri;
+    }
+
+    server {
+        listen 443 ssl backlog=65535;
+        ssl_certificate /etc/nginx/bootcamp-opencab.crt;
+        ssl_certificate_key /etc/nginx/bootcamp-opencab.key;
+        ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers         HIGH:!aNULL:!MD5;
+
         passenger_enabled on;
 
-        root <%= @app_location %>/public;
+        root /webapps/open-cabinet/public;
 
         passenger_friendly_error_pages on;
         passenger_pass_header X-Accel-Redirect;
@@ -34,6 +44,8 @@ http {
            add_header Cache-Control "private";
        }
     }
+
+
 
     sendfile on;
     tcp_nopush on;
@@ -51,6 +63,7 @@ http {
     gzip_types text/plain text/css text/xml text/javascript application/x-javascript application/xml;
     gzip_disable "MSIE [1-6]\.";
     passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-    passenger_ruby /usr/bin/ruby;
+    ###passenger_ruby /usr/bin/ruby;
+    passenger_ruby /usr/local/rvm/gems/ruby-2.2.1/wrappers/ruby;
     include /etc/nginx/conf.d/*.conf;
 }

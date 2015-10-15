@@ -169,10 +169,10 @@ CloudFormation {
       ]
 
       HealthCheck {
-        Target 'HTTPS:443/is_it_up'
-        HealthyThreshold '3'
-        UnhealthyThreshold '5'
-        Interval '90'
+        Target 'TCP:80'
+        HealthyThreshold '2'
+        UnhealthyThreshold '10'
+        Interval '300'
         Timeout '60'
       }
 
