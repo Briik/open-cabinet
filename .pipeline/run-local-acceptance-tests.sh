@@ -45,10 +45,9 @@ function run_local_acceptance_tests {
   export RAILS_ENV=test
 
   bundle exec rake db:drop db:create db:migrate
-
+  bundle exec rake searchable_medicines:import
   bundle exec rake cucumber \
     CUCUMBER_OPTS="--format json --out ${test_result_dir}/local_acceptance_test_result.json --format pretty"
-  bundle exec rake searchable_medicines:import
 }
 
 #############################################################
