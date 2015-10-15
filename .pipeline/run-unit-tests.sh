@@ -24,11 +24,11 @@ function create_secrets {
   hostname=$(get_db_hostname --region ${region} --stackname ${stackname})
   cat <<SECRETS > secret.values
   secret_key_base: ${secret_key_base}
-  db_host: $(get_db_hostname --region ${region} --stackname $(get_pipeline_property --key open_cabinet_rds_stack_name))
-  db_un: dbuser
-  db_pw: dbpassword
-  un: user
-  pw: password
+  database_host: $(get_db_hostname --region ${region} --stackname $(get_pipeline_property --key open_cabinet_rds_stack_name))
+  database_username: dbuser
+  database_password: dbpassword
+  basic_auth_username: user
+  basic_auth_password: password
   import_key: tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef
 SECRETS
   set -x
