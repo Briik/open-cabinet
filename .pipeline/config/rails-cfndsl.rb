@@ -80,7 +80,7 @@ CloudFormation {
   #   Description 'The database name'
   # }
 
-  Parameter('import_key') {
+  Parameter('importKey') {
     String
 
     NoEcho true
@@ -390,7 +390,7 @@ CloudFormation {
       'export database_host=\'', Ref('databaseHost'), "'\n",
       'export database_username=\'', Ref('databaseUser'), "'\n",
       'export database_password=\'', Ref('databasePass'), "'\n",
-      'export import_key=\'', Ref('import_key'), "'\n",
+      'export import_key=\'', Ref('importKey'), "'\n",
     ]
 
     signal_completion = [
