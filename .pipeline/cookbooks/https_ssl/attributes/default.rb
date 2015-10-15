@@ -6,6 +6,6 @@ default[:myuscis][:https_ssl][:cert_object_name] = "bootcamp-opencab.crt.encrypt
 default[:myuscis][:https_ssl][:key_object_name] = "bootcamp-opencab.key.encrypted"
 
 default[:myuscis][:https_ssl][:config_dir] = "/etc/nginx/"
-default[:myuscis][:https_ssl][:cert_flename] = "bootcamp-opencab.crt"
+default[:myuscis][:https_ssl][:cert_filename] = "bootcamp-opencab.crt"
 default[:myuscis][:https_ssl][:key_filename] = "bootcamp-opencab.key"
 default[:myuscis][:https_ssl][:cert_password] = "devopsboocamp"
