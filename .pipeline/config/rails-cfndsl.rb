@@ -84,7 +84,7 @@ CloudFormation {
     String
 
     NoEcho true
-    Description: 'OpenFDA api key'
+    Description 'OpenFDA api key'
   }
 
   Parameter('InstanceKeyPair') {
