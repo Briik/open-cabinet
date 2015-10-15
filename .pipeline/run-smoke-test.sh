@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url_to_test='https://development.sandbox.myuscispilot.com/sandbox'
+url_to_test='https://www.demo-opencabi.net'
 
 times=(1 2 3 4 5 6 7 8 9 10)
 
