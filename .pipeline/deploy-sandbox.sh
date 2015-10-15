@@ -67,7 +67,7 @@ aws cloudformation create-stack \
     ParameterKey=databaseHost,ParameterValue="bootcamp-development-open-cabinet-rds-20151002190654.cmfxlh1devrl.us-east-1.rds.amazonaws.com" \
     ParameterKey=databaseUser,ParameterValue=$(get_inventory_parameter --parameter sandbox_database_un) \
     ParameterKey=authUser,ParameterValue=$(get_inventory_parameter --parameter basicAuthUsername) \
-    ParameterKey=import_key, ParameterValue=$(get_inventory_parameter --parameter import_key) \
+    ParameterKey=import_key,ParameterValue=$(get_inventory_parameter --parameter import_key) \
     \
   --tags \
     Key=StackType,Value=DEV \
