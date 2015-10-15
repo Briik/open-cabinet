@@ -132,13 +132,13 @@
         "myuscis": {
           "app" : {
             "name": "open-cabinet",
-            "un" : "user",
-            "pw" : "password",
-            "db_un" : "dbuser",
-            "db_pw" : "dbpassword",
+            "basic_auth_username" : "user",
+            "basic_auth_password" : "password",
+            "database_username" : "dbuser",
+            "database_password" : "dbpassword",
             "secret_key" : "{{user `secret_key_base`}}",
             "import_key" : "tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef",
-            "host": "bootcamp-development-open-cabinet-rds-20151002190654.cmfxlh1devrl.us-east-1.rds.amazonaws.com"
+            "database_host": "bootcamp-development-open-cabinet-rds-20151002190654.cmfxlh1devrl.us-east-1.rds.amazonaws.com"
 
           },
 
