@@ -22,14 +22,14 @@ rails_stack_name=$(get_pipeline_property --key sandbox_rails_stack_name)
 
 target_env=$(get_pipeline_property --key targetEnv)
 
-set_inventory_parameter --parameter domain --value "development.com"
-set_inventory_parameter --parameter ${target_env}_subdomainName --value "development"
+set_inventory_parameter --parameter domain --value "demo-opencabi.net"
+set_inventory_parameter --parameter ${target_env}_subdomainName --value "www"
 
 subdomain_name=$(get_inventory_parameter --parameter ${target_env}_subdomainName)
 
-route53switch-elb --subdomain "${subdomain_name}.sandbox" \
+route53switch-elb --subdomain "${subdomain_name}" \
                   --hostedzone $(get_inventory_parameter --parameter domain) \
-                  --region ${region} \
+                  --region ${region} \	
                   --stackname ${rails_stack_name}
 
 set_pipeline_property --key furthest_pipeline_stage_completed \
