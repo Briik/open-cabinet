@@ -43,7 +43,7 @@ cat > /userdata/formattedattributes.json <<CHEFJSON
 {
   "run_list": [
     "recipe[ec2_env]",
-    "recipe[https_ssl::default",
+    "recipe[https_ssl::default]",
     "recipe[sandbox::from_ami]"
   ],
 
