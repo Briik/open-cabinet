@@ -7,27 +7,27 @@ if (!environment)
 }
 
 pipelines =  [
-  'Build Sandbox':[
-    'commit':[
+  'Build Open Cabinet':[
+    'Build and Test App':[
       'poll-version-control',
       'run-static-analysis',
       'run-unit-tests',
       'run-local-acceptance-tests'
     ],
-    'acceptance':[
+    'Provision Target Infrastructure':[
       'create-system-image',
       'create-acceptance-environment',
       'run-infrastructure-tests',
       'run-acceptance-tests',
       'promote-ami'
     ],
-    'dev-duction':[
+    'Activate Target':[
       'blue-green-deploy-dev-environment',
       'run-smoke-test'
     ]
   ]
 ]
-appName = 'sandbox'
+appName = 'Open-Cabinet'
 
 //////////////////////////////////////////////////////////////////////////
 // Utility methods

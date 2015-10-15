@@ -22,6 +22,7 @@ set_inventory_parameter --parameter vpc_identifier --value ${vpc}
 set_inventory_parameter --parameter basicAuthUsername --value "user"
 set_inventory_parameter --parameter basicAuthPassword --value "password"
 set_inventory_parameter --parameter publicSubnet --value "subnet-189a8d6f"
+set_inventory_parameter --parameter import_key --value "tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef"
 
 discover_vpc_configuration
 
@@ -37,6 +38,8 @@ cfndsl .pipeline/config/rails-cfndsl.rb > .pipeline/config/rails.json
 
 #fix me for prod
 encryption_key_alias=alias/devopsbootcampkey
+
+echo $(encrypt_with_kms --key-arn ${encryption_key_alias} --plaintext $(get_inventory_parameter --parameter secret_key_base)) \
 
 #WARNING!!!!!!!!
 #AS YOU ARE PASSING IN SENSITIVE CREDENTIALS HERE - BE SURE TO ENCRYPT THEM!!!!!
@@ -64,6 +67,7 @@ aws cloudformation create-stack \
     ParameterKey=databaseHost,ParameterValue="bootcamp-development-open-cabinet-rds-20151002190654.cmfxlh1devrl.us-east-1.rds.amazonaws.com" \
     ParameterKey=databaseUser,ParameterValue=$(get_inventory_parameter --parameter sandbox_database_un) \
     ParameterKey=authUser,ParameterValue=$(get_inventory_parameter --parameter basicAuthUsername) \
+    ParameterKey=import_key, ParameterValue=$(get_inventory_parameter --parameter import_key) \
     \
   --tags \
     Key=StackType,Value=DEV \

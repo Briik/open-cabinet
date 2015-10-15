@@ -80,6 +80,13 @@ CloudFormation {
   #   Description 'The database name'
   # }
 
+  Parameter('import_key') {
+    String
+
+    NoEcho true
+    Description: 'OpenFDA api key'
+  }
+
   Parameter('InstanceKeyPair') {
     String
 
@@ -383,7 +390,7 @@ CloudFormation {
       'export database_host=\'', Ref('databaseHost'), "'\n",
       'export database_username=\'', Ref('databaseUser'), "'\n",
       'export database_password=\'', Ref('databasePass'), "'\n",
-      'export import_key=\'', "tQ2ILy9FhJedWF2iH09nwIKdNV7eEhMXsz4c8zef", "'\n",
+      'export import_key=\'', Ref('import_key'), "'\n",
     ]
 
     signal_completion = [

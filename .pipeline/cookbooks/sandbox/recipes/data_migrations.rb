@@ -3,9 +3,9 @@ template "#{node[:myuscis][:app][:location]}/config/database.yml" do
   source 'database.yml.erb'
   action :create
   variables ({
-              database_host: node[:myuscis][:app][:db_host],
-              database_username: node[:myuscis][:app][:db_un],
-              database_password: node[:myuscis][:app][:db_pw],
+              database_host: node[:myuscis][:app][:database_host],
+              database_username: node[:myuscis][:app][:database_username],
+              database_password: node[:myuscis][:app][:database_password],
             })
 end
 
