@@ -29,7 +29,7 @@ subdomain_name=$(get_inventory_parameter --parameter ${target_env}_subdomainName
 
 route53switch-elb --subdomain "${subdomain_name}" \
                   --hostedzone $(get_inventory_parameter --parameter domain) \
-                  --region ${region} \	
+                  --region ${region} \
                   --stackname ${rails_stack_name}
 
 set_pipeline_property --key furthest_pipeline_stage_completed \
