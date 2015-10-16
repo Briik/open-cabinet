@@ -5,9 +5,9 @@ namespace :searchable_medicines do
     parser = OpenFda::SearchableMedicines.new(Rails.configuration.open_fda_import_key,
                                           ImportAutocomplete::FileWriter.new(args.arg1))
     #start_time = Time.new(1990, 6, 1)
-    start_time = Time.new(2015, 9, 1)
-    finish_time = Time.new
-    # finish_time = Time.new(1995, 1, 1)
+    start_time = Time.new(1995, 1, 1)
+    #finish_time = Time.new
+    finish_time = Time.new(1996, 10, 1)
     parser.pull_searchable_medicines(start_time, finish_time)
   end
 
@@ -16,9 +16,9 @@ namespace :searchable_medicines do
     parser = OpenFda::SearchableMedicines.new(Rails.configuration.open_fda_import_key,
                                           ImportAutocomplete::SqlWriter.new)
     #start_time = Time.new(1990, 6, 1)
-    start_time = Time.new(2015, 9, 1)
-    finish_time = Time.new
-    # finish_time = Time.new(1995, 1, 1)
+    start_time = Time.new(1995, 1, 1)
+    #finish_time = Time.new
+    finish_time = Time.new(1996, 10, 1)
     parser.pull_searchable_medicines(start_time, finish_time)
   end
 end
