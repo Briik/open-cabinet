@@ -7,7 +7,7 @@ namespace :searchable_medicines do
     #start_time = Time.new(1990, 6, 1)
     start_time = Time.new(1995, 1, 1)
     #finish_time = Time.new
-    finish_time = Time.new(1996, 10, 1)
+    finish_time = Time.new(1999, 10, 1)
     parser.pull_searchable_medicines(start_time, finish_time)
   end
 
@@ -18,7 +18,7 @@ namespace :searchable_medicines do
     #start_time = Time.new(1990, 6, 1)
     start_time = Time.new(1995, 1, 1)
     #finish_time = Time.new
-    finish_time = Time.new(1996, 10, 1)
+    finish_time = Time.new(1999, 10, 1)
     parser.pull_searchable_medicines(start_time, finish_time)
   end
 end
