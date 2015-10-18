@@ -5,6 +5,6 @@ RSpec.describe User, type: :model do
     cabinet = Cabinet.create!
     User.create!(email: 'test1@test.com', password: 'password', cabinet: cabinet)
 
-    expect(1.to eq 1)
+    expect(1 eq 1)
   end
 end
