@@ -29,7 +29,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "{{ .Vars }} sudo -E  /bin/bash '{{ .Path }}'",
+      "execute_command": "/usr/bin/env -i {{.Vars}} /bin/bash -ix {{.Path}}",
       "inline": [
         "#!/bin/bash -e",
         "sleep 10",
