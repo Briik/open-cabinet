@@ -18,7 +18,7 @@
 
   "builders": [
     {
-      "type": "amazon-ebs",
+      "type": "amazon-chroot",
       "region": "us-east-1",
       "source_ami": "{{user `hardened_base_ami`}}",
       "instance_type": "c3.large",
