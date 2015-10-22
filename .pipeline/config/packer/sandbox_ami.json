@@ -21,12 +21,7 @@
       "type": "amazon-chroot",
       "region": "us-east-1",
       "source_ami": "{{user `hardened_base_ami`}}",
-      "instance_type": "c3.large",
-      "ssh_username": "ubuntu",
-      "ami_name": "sandbox {{timestamp}}",
-
-      "vpc_id": "{{user `vpc_id`}}",
-      "subnet_id": "{{user `subnet_id`}}"
+      "ami_name": "sandbox {{timestamp}}"
     }
   ],
 
