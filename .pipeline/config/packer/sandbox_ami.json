@@ -22,7 +22,11 @@
       "region": "us-east-1",
       "source_ami": "{{user `hardened_base_ami`}}",
       "ami_name": "sandbox {{timestamp}}",
-      "command_wrapper": "sudo {{.Command}}"
+      "chroot_mounts": [
+        ["proc", "proc", "/proc"],
+        ["bind", "/dev", "/dev"]
+      ],
+    "command_wrapper": "sudo {{.Command}}"
     }
   ],
 

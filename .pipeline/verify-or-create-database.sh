@@ -23,7 +23,7 @@ rds_stack_name_inventory_key=$(compute_stack_name --vpc-label ${vpc_label} \
                                                   --target-env ${target_env} \
                                                   --app-name "open-cabinet-RDS")
 
-rds_stack_name="$(get_inventory_parameter --parameter ${rds_stack_name_inventory_key})"
+rds_stack_name="$(get_inventory_parameter --parameter ${rds_stack_name_inventory_key} --blank-ok true)"
 
 dbname="OpenCabinetDB"
 
