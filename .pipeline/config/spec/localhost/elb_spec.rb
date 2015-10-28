@@ -3,7 +3,7 @@ require 'spec_helper'
 elb_name = ENV['ELB_NAME']
 
 describe elb(elb_name) do
-  it { should have_scheme 'internal' }
+  #it { should have_scheme 'internal' }
 
   it { should_not have_cross_zone_load_balancing_enabled }
 
@@ -29,12 +29,12 @@ describe elb(elb_name) do
                                    {port_range: '443..443', protocol: 'tcp', ip_ranges: %w{0.0.0.0/0}}
                                  ] }
 
-  it { should have_health_check_healthy_threshold(3) }
-  it { should have_health_check_unhealthy_threshold(5) }
-  it { should have_health_check_interval(90) }
+  #it { should have_health_check_healthy_threshold(3) }
+  #it { should have_health_check_unhealthy_threshold(5) }
+  #it { should have_health_check_interval(90) }
   it { should have_health_check_timeout(60) }
 
-  it { should have_health_check_target('HTTPS:443/is_it_up') }
+  #it { should have_health_check_target('HTTPS:443/is_it_up') }
 
   it { should have_availability_zone_names(%w{us-east-1b})}
   it { should have_number_of_availability_zones(1) }
