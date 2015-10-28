@@ -34,11 +34,11 @@ pushd .pipeline/config
   export TARGET_HOST="${instance_private_ip}"
 
   # commenting out to make sure the instance stands up
-  #bundle exec rake spec
-  times=(1 2 3)
+  bundle exec rake spec RAILS_ENV=test
+  #times=(1 2)
 
-  for time in ${times[@]}
-  do
-    sleep 20
-  done
+  #for time in ${times[@]}
+  #do
+  #  sleep 20
+  #done
 popd
