@@ -35,5 +35,10 @@ pushd .pipeline/config
 
   # commenting out to make sure the instance stands up
   #bundle exec rake spec
+  times=(1 2 3)
 
+  for time in ${times[@]}
+  do
+    sleep 20
+  done
 popd
