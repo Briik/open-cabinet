@@ -16,9 +16,9 @@
     "gemfile_source": ""
   },
 
-"builders": [
+  "builders": [
     {
-      "type": "amazon-chroot",
+      "type": "amazon-ebs",
       "region": "us-east-1",
       "source_ami": "{{user `hardened_base_ami`}}",
       "instance_type": "c3.large",
