@@ -22,7 +22,6 @@ sandbox_launch_configuration=$(get_launch_configuration_name --region ${region} 
 asg_name=$(get_asg_name --region ${region} --stackname ${sandbox_stack_name})
 instance_private_ip=$(get_private_ips_from_asg --asg-name ${asg_name} --region ${region})
 
-pushd .pipeline/config
 
   bundle install --jobs 4 --retry 10
 
@@ -35,6 +34,7 @@ pushd .pipeline/config
 
   # commenting out to make sure the instance stands up
   bundle exec rake spec RAILS_ENV=test
+pushd .pipeline/config
   #times=(1 2)
 
   #for time in ${times[@]}
