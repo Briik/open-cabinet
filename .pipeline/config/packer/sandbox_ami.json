@@ -33,7 +33,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "/usr/bin/env -i {{.Vars}} /bin/bash -ix {{.Path}}",
+      "execute_command": "{{ .Vars }} sudo -E  /bin/bash '{{ .Path }}'",
       "inline": [
         "#!/bin/bash -e",
         "sleep 10",
