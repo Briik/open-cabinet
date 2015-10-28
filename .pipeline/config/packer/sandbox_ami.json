@@ -16,20 +16,20 @@
     "gemfile_source": ""
   },
 
-  "builders": [
+"builders": [
     {
       "type": "amazon-chroot",
       "region": "us-east-1",
       "source_ami": "{{user `hardened_base_ami`}}",
+      "instance_type": "c3.large",
+      "ssh_username": "ubuntu",
       "ami_name": "sandbox {{timestamp}}",
-      "chroot_mounts": [
-        ["proc", "proc", "/proc"],
-        ["bind", "/dev", "/dev"]
-      ],
-    "command_wrapper": "sudo {{.Command}}"
+
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}"
     }
   ],
-
+  
   "provisioners": [
     {
       "type": "shell",
